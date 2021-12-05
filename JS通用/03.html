@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 把变量的初始化放在了for循环之外
+      var i = 0;
+      // 那么小括号里的第一个表达式就可以不写
+      // for (; i < 100; i++) {
+      //   console.log('我错了');
+      // }
+      // 小括号的第二个表达式也可以不写，此时这里就会陷入死循环
+      // for (; ; i++) {
+      //   console.log('a');
+      // }
+      // 小括号的第二个表达式也可以写一个常量,但是因为这个是条件判断的表达式，如果是一个不能转为false的常量，就会陷入死循环，如果是false或者可以转为false的常量（这里我们回忆一下，哪些值可以转为false？），则循环体不会执行。
+      for (; false; i++) {
+        console.log('b');
+      }
+      for (; 0; i++) {
+        console.log('b');
+      }
+      for (; ''; i++) {
+        console.log('b');
+      }
+      for (; null; i++) {
+        console.log('b');
+      }
+      for (; undefined; i++) {
+        console.log('b');
+      }
+      for (; NaN; i++) {
+        console.log('b');
+      }
+      // for (; 1; i++) {
+      //   console.log('b');
+      // }
+      // for (; 'a'; i++) {
+      //   console.log('b');
+      // }
+      // for (; true; i++) {
+      //   console.log('b');
+      // }
+      // 第三个表达式也可以不写,但是这里不写，下面这个例子是不是就死循环了
+      for (var j = 0; j < 10;) {
+        console.log('c');
+        j++;
+      }
+
+    </script>
+  </body>
+</html>

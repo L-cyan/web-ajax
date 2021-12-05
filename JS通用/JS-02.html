@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //数据类型
+    /*  var num = 18;
+     console.log(num);
+     var str = '33水电费';
+     console.log(str);
+     var b1 = false;
+     console.log(b1);
+     var num2 = null;
+     console.log(num2);
+     var num3 = undefined;
+     console.log(num3); */
+    //转换为字符型 三种方法
+    /*   console.log(num.toString());
+      console.log(String(num2));
+      console.log(num3 + '字符'); */
+    //转换为数字型
+    /*  var str2 = "3.14"
+     console.log(parseInt(str));
+     console.log(parseInt(str2));
+
+     console.log(Number(str));
+     console.log(Number(str2));
+
+     console.log(str2 - 0);
+     console.log(str / 1);
+     console.log(str2 * 1); */
+    /*   //计算年龄
+      var year = prompt('请输入出生年份');
+      var age = 2021 - year;
+      alert(`你今年${age}岁啦`) */
+    /*  //案例相加
+     var number1 = prompt('请输入第一个数字');
+     var number2 = prompt('请输入第二个数字');
+     var result = number1 / 1 + parseFloat(number2);
+     alert(`你的结果是：${result}`) */
+    /*   //转换为布尔类型
+      console.log(Boolean(0));
+      console.log(Boolean(NaN));
+      console.log(Boolean(1));
+      console.log(Boolean(' ')); */
+    /*     // 运算符
+        console.log(1 + 1);
+        console.log(5.3 - 2);
+        console.log(3 * 4);
+        console.log(5 / 2);
+        console.log(4 % 9);
+     console.log(0.07 * 100);
+        console.log(5 == 2);
+        var str3 = 2.9 + 3.14;
+        console.log(6.04 == str3); */
+    //递增递减
+    /*       console.log(num++ + 3);
+          console.log(num);
+  
+          var c1 = 8;
+          var total = --c1 + c1--;
+          console.log(total, c1); */// 6
+    //比较运算符
+    /*        console.log(4.5 >= 4);//T
+   
+           console.log(false == 0);//T
+           console.log(null == 0);//F 
+           console.log('4.5 ' == 4.5);//T
+           console.log('4.5 ' === 4.5);//F
+           console.log('4.5 ' !== 4.5);//T
+   
+           console.log(!null)//T
+   
+           console.log(1 !== 2 && !null)//true
+           console.log(1 == 2 || null)//null 
+           console.log(1 == 2 || undefined)//undefined
+           console.log(2 == 2 && null)//null
+           console.log(1 == 2 && undefined)//false
+   
+           console.log(123 || 456); //123
+   
+           var v1 = 0;
+           console.log(123 || v1++); //123 v1不执行还是0
+           console.log(v1); */
+
+    //分支语句
+    /*    var age = prompt('年龄');
+   
+       if (age >= 18) {
+         alert('go')
+       } else {
+         alert('out')
+       }*/
+    //a判断闰年 
+    /*    var year = prompt('年份');
+       if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+         alert('闰年')
+       } else {
+         alert('平年')
+       } */
+    //中奖
+    /*     var o1 = prompt('姓名');
+    
+        if (o1 === '刘德华') {
+          alert('中奖5元')
+        } else {
+          alert('没中奖')
+        }
+     */
+    //成绩分类 
+    /*     var score = prompt('成绩');
+        if (score < 0 || score > 100) {
+          alert('请输入正确成绩')
+        } else if (score < 60) { 
+          alert('不及格')
+        }
+        else if (score < 80) {
+          alert('一般')
+        }
+        else if (score < 95) {
+          alert('不错')
+        }
+        else {
+          alert('很棒')
+        } */
+    //三元表达式
+    /*  var hh = false ? "好的" : "不好";
+     console.log(hh); */
+    //数字补0
+    /*   var time = prompt('输入数字');
+      time = time < 10 ? "0" + time : time;
+      console.log(time); */
+    //switch 语句
+    /*    var pp = prompt('请输入得分');
+       switch (pp - 3) {
+         case 10:
+         case 9:
+           console.log('优秀');
+           break;
+         case 5:
+           console.log('一般');
+           break;
+           default:
+              console.log('000');
+       }
+    */
+    // 水果案例
+/*     var fruit = prompt('输入水果');
+    switch (fruit) {
+      case '苹果':
+      case '梨':
+        console.log('价格为3.5/斤');
+        break;
+      case '榴莲':
+        console.log('价格为35/斤');
+        break;
+      default:
+        console.log('没有该水果');
+    }
+
+    if (fruit === '苹果' || fruit === '梨') {
+      console.log('价格为3.5/斤');
+    } else if (fruit === '榴莲') {
+      console.log('价格为35/斤');
+
+    } else {
+      console.log('没有该水果');
+    } */
+    // 自增自减运算 
+    var a = 1;
+    var c = ++a + a++ ;// 2+2
+    console.log(a); // 3
+    console.log(c); // 4
+
+    var e = 10;
+    var f = (e++) + (++e); // 10 +12 
+    console.log(f); // 22
+    console.log(e); // 12
+
+    var c = 10 ;
+    c++; // 11
+    var d = c++ + 2; //11+2
+    console.log(d); //13 
+    console.log(c); //12
+
+    var c1 = 8;
+          var total = --c1 + c1--;
+          console.log(total, c1); //14  6
+
+          console.log(3>=5 && undefined);
+          console.log(3<5 && undefined);
+          console.log(123 && 345);
+          console.log(3<5 && 3>6);
+console.log(!null); // true
+            console.log(1 !== 2 && !null)//true
+           console.log(1 == 2 || null)//null 
+           console.log(1 == 2 || undefined)//undefined
+           console.log(2 == 2 && null)//null
+           console.log(1 == 2 && undefined)//false
+           console.log(2 == 2 && undefined)//undefined
+
+          //  if ('123') {
+          //    alert('123')
+          //  }
+          //  var num = prompt('请输入年龄') ;
+          //  if (num>=18) {
+          //    alert('允许')
+          //  } else {
+          //   alert('no')
+          //  }
+           // 判断闰年
+          //  var year = prompt('年份');
+          //  if (year % 4 ==0 && year % 100 != 0 || year % 400 == 0) {
+          //    alert('闰年')
+          //  } else {
+          //   alert('平年')
+          //  }
+           //成绩
+          //  var score = prompt('成绩');
+          //  if (score < 60) {
+          //    alert('不及格')
+          //  } else if (score < 70) {
+          //    alert('危险')
+          //  }
+          //  else if (score < 80) {
+          //    alert('一般')
+          //  }else if (score < 90) {
+          //    alert('很棒')
+          //  } else {
+          //   alert('优秀')
+          //  }
+           //数字补0 
+          //  var time = prompt('输入数字0-59')
+          //  var result = time >= 10 ? time : '0' + time;
+          //  alert(result);
+           //蔬果
+          //  var fruit = prompt('水果');
+          //  switch (fruit) {
+          //    case '苹果':
+          //      alert('苹果3.5一斤');
+          //      break;
+          //    case '榴莲':
+          //      alert('榴莲35一斤');
+          //      break;
+          //      default:
+          //        alert('没有该水果')
+          //  }
+           // 月份显示对应的天数
+           // 输入当前月份
+          //  var month = prompt('输入当前月份1-12');
+          //  switch (month) {
+          //    case '4' :
+          //    case '6':
+          //    case '9':
+          //    case '11':
+          //      alert(`${month}月有30天`);
+          //      break;         
+          //    case '2':
+          //        var year = prompt('请输入年份');
+          //        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+          //          alert(`${month}月有29天`)
+          //        } else {
+          //         alert(`${month}月有28天`)
+          //        }
+          //        break;
+          //     default:
+          //       alert(`${month}月有31天`); 
+          //  }
+// if 里面嵌套SWITCH 更为合适
+           var month = parseInt(prompt('输入当前月份1-12'));
+           if ( month == 2 ) {
+            var year = prompt('请输入年份');}
+           if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                   alert(`${month}月有29天`)
+                 } else {
+                   switch (month) {
+                     case 4:
+                     case 6:
+                     case 9:
+                     case 11:
+                     alert(`${month}月有30天`);
+                     break;
+                     case 2:
+                     alert(`${month}月有28天`)
+                     break;
+                     default:
+                    alert(`${month}月有31天`);                
+                   }
+                 }
+           
+
+  </script>
+</body>
+
+</html>

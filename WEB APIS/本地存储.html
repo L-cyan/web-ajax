@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="uname">
+    
+    <input type="text" class="pwd">
+
+    <button class="set">存储</button>
+    <button class="get">获取</button>
+    <button class="remove">删除某个键</button>
+    <button class="clear">清除全部数据</button>
+
+    <script>
+        var iptName = document.querySelector('.uname')
+        var iptPwd = document.querySelector('.pwd')
+        var set = document.querySelector('.set')
+        var get = document.querySelector('.get')
+        var remove = document.querySelector('.remove')
+        var clear = document.querySelector('.clear')
+        // sessionStorage
+        set.addEventListener('click',function(){
+            var valName =iptName.value; 
+            var valPwd =iptPwd.value; 
+            sessionStorage.setItem('uname',valName)
+            sessionStorage.setItem('pwd',valPwd)  
+        })
+        get.addEventListener('click',function(){
+
+           console.log(sessionStorage.getItem('uname'))
+           console.log(sessionStorage.getItem('pwds'))  
+        })
+        remove.addEventListener('click',function(){
+
+           sessionStorage.removeItem('uname')
+          // sessionStorage.removeItem('pwd')
+        })
+        clear.addEventListener('click',function(){
+          sessionStorage.clear()
+        })
+
+        // localStorage
+        // set.addEventListener('click',function(){
+        //     var valName =iptName.value; 
+        //     var valPwd =iptPwd.value; 
+        //     localStorage.setItem('uname',valName)
+        //     localStorage.setItem('pwd',valPwd)  
+        // })
+        // get.addEventListener('click',function(){
+
+        //    console.log(localStorage.getItem('uname'))
+        //    console.log(localStorage.getItem('pwd'))  
+        // })
+        // remove.addEventListener('click',function(){
+
+        //    localStorage.removeItem('uname')
+        //   // sessionStorage.removeItem('pwd')
+        // })
+        // clear.addEventListener('click',function(){
+        //   localStorage.clear()
+        // })
+
+    </script>
+
+
+</body>
+</html>

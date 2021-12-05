@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css"/>
+    <script src="./lib/jquery.js"></script>
+    <script src="./cmt.js"></script>
+</head>
+<body style="padding:20px" >
+    <!-- 面板  bs3-panel:primary-->  
+    <div class="panel panel-primary">
+          <div class="panel-heading">
+                <h3 class="panel-title">发表评论</h3>
+          </div>
+          <!-- 改造 用form包裹  添加id 里面表单的name要有且和接口文档一致 -->
+          <form class="panel-body" id="formAddVmt">
+                <div>评论人</div>
+                <!-- form-control 类效果会好看 -->
+                <input type="text" class="form-control" name="username">
+                <div>评论内容</div>
+                <textarea name="content"  class="form-control"></textarea>
+                <!-- bs3-button:primary type应该为submit -->
+                <button type="submit" class="btn btn-primary">发表评论</button>              
+          </form>
+    </div>
+    <!-- 列表 bs3-list-group：badge-->
+    <ul class="list-group">
+        <li class="list-group-item">
+            <!-- 右浮动 先写的先浮动 注意顺序 -->
+            <span class="badge">评论时间</span>
+            <span class="badge">评论人</span>
+            内容
+        </li>      
+    </ul>   
+</body>
+
+</html>

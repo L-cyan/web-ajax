@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮1</button><button>按钮2</button><button>按钮3</button><button>按钮4</button><button>按钮5</button>
+    <script>
+        // 1 获取元素
+        var btns = document.getElementsByTagName('button')
+
+        // 循环元素集合 得到元素对象
+        for ( var i = 0; i < btns.length;i++) {
+            btns[i].onclick = function() {
+                // 只有当前点击的元素对象生效 需要先清除全部样式
+                for ( var i = 0; i < btns.length;i++) {
+                    btns[i].style.backgroundColor = '';
+                }
+                // 再将该元素设置
+                this.style.backgroundColor = 'pink';
+            }
+
+        }
+    </script>
+</body>
+</html>

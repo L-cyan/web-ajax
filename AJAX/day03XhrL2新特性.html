@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css">
+    <script src="./lib/jquery.js"></script>
+</head>
+<body>
+    <form action="" id="form1">
+        姓名：<input type="text" autocomplete="false"/>
+        密码；<input type="text" />
+        <button type="submit">提交</button>
+    </form>
+    <input type="file" id="file1"/>
+    <button id="upload">上传文件</button>
+    <!-- bootstrap找到对应的样式代码 修改 -->
+    <div class="progress" style="width: 500px; margin: 10px 0;">
+        <div class="progress-bar progress-bar-striped active" id="bar" style="width: 0%">
+            0%
+        </div>
+      </div>
+    <!-- 展示上传的图片 -->
+    <img src="" alt="" id="img" width="">
+    <script>
+        // 1.设置超时时间
+        // var xhr = new XMLHttpRequest();
+        // xhr.timeout = 30;
+        // //超时事件 指定回调函数
+        // xhr.ontimeout = function(){
+        //     alert('请求超时')
+        // }
+        // xhr.open('GET','http://www.liulongbin.top:3006/api/getbooks')
+        // 无需写setRequestHeader 支持默认的 如果是传统表单提交需要设置以这种来解码
+        // xhr.send()
+        // xhr.onreadystatechange =function(){
+        //     if(xhr.readyState ===4 && xhr.status===200){
+        //         console.log(xhr.responseText);
+        //     }
+        // }
+        // formData对象管理表单数据
+        // 创建对象
+        var fd = new FormData()
+        console.log(fd);
+        fd.append('uname','zs')
+        fd.append('upwd','123456')
+        console.log(fd);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST','http://www.liulongbin.top:3006/api/formdata')
+        xhr.send(fd)
+        xhr.onreadystatechange =function(){
+            if(xhr.readyState ===4 && xhr.status===200){
+                console.log(JSON.parse(xhr.responseText));
+            }
+        }
+        var form = document.querySelector('#form1')
+        form.addEventListener('submit',function(e){
+            e.preventDefault()
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData(form)
+            console.log(fd);
+            xhr.open('POST','http://www.liulongbin.top:3006/api/formdata')
+            xhr.send(fd)
+            xhr.onreadystatechange =function(){
+            if(xhr.readyState ===4 && xhr.status===200){
+                console.log(JSON.parse(xhr.responseText));
+            }
+        }
+        })
+        // 验证是否选择了文件
+        var btn = document.querySelector('#upload')
+        btn.addEventListener('click',function(){
+            // 通过files属性得到文件数组
+            var files = document.querySelector('#file1').files
+            console.log(files);
+            if ( files.length <=0){
+               return alert('请选择文件')
+            }
+            // console.log('上传了');
+            // 创建FormData对象并追加文件
+            var fd = new FormData()
+            // avatar 是固定的图片相关 要这么写
+            fd.append('avatar',files[0])
+            // 创建xhr对象 发送请求
+            var xhr = new XMLHttpRequest();
+            // 计算文件上传进度 监听xhr.upload.onprogress事件
+            xhr.upload.onprogress = function(e){
+                // 上传的资源是否具有可计算的长度
+                if(e.lengthComputable){
+                    // 已传输字节/需要传输的字节 取整
+                    var percentCompete = Math.ceil((e.loaded/e.total) *100)
+                    console.log(percentCompete);
+                    $('#bar').attr('style',`width:${percentCompete}%`).html(`${percentCompete}%`)                 
+                }            
+            }
+            // 完成后事件
+            xhr.upload.onload = function(){
+                $('#bar').removeClass().addClass('progress-bar progress-bar-success') 
+            }
+            xhr.open('post','http://www.liulongbin.top:3006/api/upload/avatar')
+            xhr.send(fd)
+            xhr.onreadystatechange =function(){
+                if (xhr.readyState ===4 && xhr.status===200) {
+                    var obj  = JSON.parse(xhr.responseText)
+                    if(obj.status === 200){
+                        document.querySelector('#img').src = ' http://www.liulongbin.top:3006'+obj.url
+                    } else {
+                        console.log(obj.message);
+                    }
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>

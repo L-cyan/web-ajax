@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>第1个</button><button>第2个</button><button>第3个</button><button>第4个</button>
+    <script>
+        // fn是闭包函数 有权访问另一个函数作用域中变量的函数
+        // function fn(){
+        //     var a = 1
+        //     function fn1(){
+        //         console.log(a);
+        //     }
+        //     fn1()
+        // }
+        // fn()
+        //  作用： 延伸变量的作用范围
+        // function fn(){
+        //     var a = 1
+        //    function fn1(){
+        //         console.log(a);
+        //     }
+        //     return  fn1
+        // }
+        // var f = fn()
+        // f();
+        // 案例： 点击打印当前的索引号
+        // 传统方法 
+        var btns = document.querySelectorAll('button')
+        for (let i = 0; i < btns.length; i++) {
+        //    维护索引
+        btns[i].index = i 
+        btns[i].addEventListener('click' ,function(){
+            console.log(this.index);
+        })         
+        }
+        // 闭包方法
+        for (let i = 0; i < btns.length; i++) {
+        //   立即执行函数 传入参数- 闭包
+       (function(i){
+        btns[i].addEventListener('click' ,function(){
+            console.log(this.index);
+        }) 
+       })(i);
+         }   
+        // 3s后 打印所有元素内容
+        for (let i = 0; i < btns.length; i++) {
+        //   立即执行函数 传入参数- 闭包
+       (function(i){
+        setTimeout(function(){
+            console.log(btns[i].innerHTML);
+        },3000) 
+       })(i);
+         }   
+        //  计算打车费用
+         var cost = (function(){
+             var  start = 13;
+             var total = 0
+             return {
+                 price : function(n){
+                    // if (n <=3) {
+                    //     total=start
+                    // }else{
+                    //     total=start + (n-3)*5
+                    // }
+                    return total = n <=3? start :start + (n-3)*5
+                 },
+                 block : function(flag){
+                    return flag? total+10 : total
+                }
+             }
+         })();
+        console.log( cost.price(5));
+        console.log( cost.block(true));
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <script> 
+ 
+    window.addEventListener('load',function() {
+        var btn = document.querySelector('button')
+        btn.addEventListener( 'click',function() {
+          alert('22')
+        })
+        window.addEventListener('resize',function(){
+            var div = document.querySelector('div')
+            if (window.innerWidth > 600) {
+                div.style.display = 'none'
+            } else {
+                div.style.display = 'block'
+            }
+        })
+        // 定时关闭
+        var img = document.querySelector('img') 
+       var timer =  setTimeout (function() {
+            img.style.display = 'none'
+        },5000)
+
+        // 关闭定时器
+        var unclose =  document.querySelector('input') 
+        unclose.addEventListener('click',function(){
+            clearTimeout(timer)
+        })
+        // 重复定时器
+        setInterval(function(){
+            console.log('1');
+        },3000)
+        // 开启闹钟定时器
+        var begin = document.querySelector('.begin');
+        var end = document.querySelector('.end');
+        var timer = null// 空对象 全局变量 清除时也可以使用 不赋值undefined 容易问题
+        begin.addEventListener('click',function(){
+            timer = setInterval(function(){
+                console.log('次数');
+            },2000)
+        })
+        end.addEventListener( 'click',function(){
+            clearInterval(timer)
+        }
+        )
+
+    })
+    // window.onload = function() {
+    //     var btn = document.querySelector('button')
+    //     btn.onclick = function() {
+    //         alert('点击了')
+    //     }
+    // }  
+    // window.addEventListener('DOMContentLoaded',function() {
+    //     var btn = document.querySelector('button')
+    //     btn.addEventListener( 'click',function() {
+    //       alert('33')
+    //     })
+    // })
+
+        // 定时器
+        setTimeout(fn , 5000)
+        function fn() {
+            console.log('爆炸了');
+        }
+
+        
+    
+
+    </script> 
+    <button>点击</button>
+    <button class="begin">开始</button>
+    <button class="end">结束</button>
+
+    <div>在不在</div>
+
+    <img src="./images/z.gif" alt="">
+    <input type="button" value="不关闭">
+</body>
+</html>

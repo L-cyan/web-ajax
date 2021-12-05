@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建类标识符默认大写开头 后面不带（）
+        class UName {
+            // 要有constructor 共有属性 new时自动调用 接受参数 返回实例对象 无需return 和function
+            constructor (username,age){
+                this.username = username;
+                this.age= age;
+            }
+            // 类里函数无需function 多个函数方法之间不用，；可以接受参数
+            sing(song){
+                console.log(`${this.username}唱${song}`);
+            }
+        }
+         // 需要new 类名（）生成实例对象 
+        var ldh = new UName('刘德华',18)
+        console.log(ldh);
+        ldh.sing('冰雨')
+
+        // 子类继承父类方法： extends
+      
+        class Son extends Father {
+            constructor(){
+                 //  调用父类中的构造函数
+                 //此时需写super或者 不要constructor  继承后this指向问题
+               super()
+                // this.x = x;
+                // this.y = y ;
+            }
+            // sum () {
+            //     console.log(  this.x *  this.y);
+            // }
+            say (){
+                console.log('22');
+            }
+        }
+        var son = new Son();
+        son.say() //8
+
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="uname">
+   <input type="checkbox" name="" id="remember">
+   <script>
+       var iptName = document.querySelector('.uname')
+       var remember= document.querySelector('#remember')
+       console.log(iptName.classList.add('bg'));
+
+       // 先判断有无存储的数据
+       if (localStorage.getItem('uname')){
+            iptName.value = localStorage.getItem('uname')
+            remember.checked = true
+       }
+
+       remember.addEventListener('change',function(){
+           this.checked ? localStorage.setItem('uname',iptName.value) : localStorage.removeItem('uname')
+       })
+       var a = 1;
+       var b = [];
+       var c = '';
+       var d = true;
+       console.log(typeof(c));
+ console.log(Number('a'));
+
+ var  arr = [{}, {}, {}]
+ for (var i = 0; i < arr.length;i++){
+
+    arr[i].onclick = function(){
+        console.log(i);
+    }
+ }
+ arr[2].onclick() // 3
+ // 
+ var  obj = {
+     name : 'ryan',
+     age :18
+ }
+ function change(o) {
+o.age = 20
+o = {
+    name : 'zoe',
+    age : 30
+}
+return o 
+ }
+ var b = change(obj)
+ console.log(b.age); // 30
+ console.log(b.name);// zoe
+ console.log(obj.age); //20 
+ console.log(obj.name); // ryan
+
+ var  obj = {
+     Value:1,
+    //  valueOf(){
+    //     return 2
+    //  },
+    //  toString(){
+    //      return '3'
+    //  }
+ }
+ console.log( 1+ obj); 
+ // 对象隐式转换 有valueOf权重高返回3 没有时候结果13  都没有结果是 1[object Object]
+   var arr1 = ['aa','bb','cc']
+   console.log(arr1.toString()); //aa,bb,cc
+   console.log(arr1.valueOf() ); // 数组
+   var boolean  = new Boolean();
+   console.log(boolean.toString()); //false
+   console.log(boolean.valueOf() ); // false
+   
+
+   console.log(1);
+ document.onclick = function() {
+   console.log('click');
+ }
+
+ setTimeout(function() {
+   console.log(3)
+ }, 3000)
+ console.log(2);
+   </script>
+</body>
+</html>

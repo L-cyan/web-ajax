@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+       function Star(uname ,age){
+        // 实例成员 ：构造函数内部this添加的成员 
+           this.uname = uname;
+           this.age = age;
+           this.sing = function(){
+               console.log('我会唱歌');
+           }    
+       }
+       console.dir(Star)
+       // 静态成员:构造函数上添加的成员
+       Star.sex = 'man'
+       // 不加prototype 实例对象无法访问   加上的话 this指向实例对象 Star无法访问
+       Star.prototype.say= function(){
+               console.log('我会说话');
+           }    
+       var lhd = new Star('刘德华',5)
+       var zxy = new Star('张学友',18)
+       console.dir(Star)
+       console.log(Star.uname);// undefined
+       console.log(lhd.uname); // 实例成员 通过实例化对象访问
+       console.log(this.uname);// undefined
+       console.log( lhd.sex); // undefined
+       console.log(Star.sex);//静态成员 通过构造函数访问
+       console.log(lhd.say===zxy.say); // T  原型对象的共享方法 同一个地址
+       console.log(lhd.sing===zxy.sing); // f 加上（） 是T
+           console.log(lhd);
+       console.log('------------');
+       // 原型对象以对象的形式赋值会覆盖原来的内容 指向object 需要手动添加constructor 记录对象指回构造函数
+       Star.prototype = {
+           constructor: Star,
+           age:20,
+           a:function(){},
+           b:function(){},
+       }
+       Object.prototype.sex= 'f'
+       lhd.sex = 'o'
+       console.log( Star.prototype);
+       console.log(lhd.sex);
+   </script> 
+</body>
+</html>

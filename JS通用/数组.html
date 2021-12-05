@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var week = ['星期一','星期二','星期三','星期四','星期五','星期六','星期日']
+        var week = new Array('星期一','星期二','星期三','星期四','星期五','星期六','星期日' )
+        // console.log(week[6]);
+
+       // week [7] ='一个';
+       // week [8] ='两个';
+       // week.length = 7 ;
+        // 遍历数组
+       for ( var i = 0 ; i < week.length;i++) {
+            console.log(week[i]);
+        }
+        // 求和 平均值
+
+        var arr  = [3,7,9,10]
+        var sum = 0 ;
+        for (var i = 0 ; i < arr.length ; i++) {
+            sum += arr[i]
+        }
+        var average = sum / arr.length;
+        console.log(sum , average);
+          // 求最大值 最小值
+         var arr2 = [12,56,3,657,52,3,3,3,12,34,56,342,3,12,999];
+         var max = arr2[0] ;
+         var min = arr2[0];
+         for (var i = 1; i < arr2.length; i++) {
+             if (arr2[i] > max) {
+                 max = arr2[i]
+             } 
+             if (arr2[i] < min) {
+                 min = arr2[i]
+             }
+     }
+     console.log(max,min);
+    //找出数组中满足条件的值
+    //  var newArr = [] ;
+    //   for ( var i = 0 ;i < arr2.length; i++ ) {
+    //        if (arr2[i] > 50) {
+    //           newArr[newArr.length] = arr2[i]
+    //        } 
+    //   }
+    // console.log(newArr);
+    // 或者声明索引j 
+      var newArr = [] ;
+      var j = 0;
+      for ( var i = 0 ;i < arr2.length; i++ ) {
+           if (arr2[i] > 50) {
+              newArr[j] = arr2[i];
+              j++;
+           } 
+      }
+      console.log(newArr);
+     // 数组中去掉某值
+    //    var newArr1 = [] ;
+    //    for (var i = 0 ;i < arr2.length; i++) {
+    //        if (arr2[i] != 3) {
+    //            newArr1[newArr1.length] =  arr2[i]
+    //        }
+    //    }
+    //    console.log(newArr1);
+     // 数组中去重 
+       arr2.sort();
+       console.log(arr2);
+       var newArr2 = [] ;
+       for (var i = 0 ;i < arr2.length; i++) {
+          if (arr2[i+1] !== arr2[i]){
+            newArr2[newArr2.length] =  arr2[i]
+          }       
+       }
+       console.log(newArr2);
+       // 数组翻转
+       var newArr3 = [];
+       for ( var i = arr2.length - 1; i >=0 ;i--)  {
+           newArr3[newArr3.length] = arr2[i];
+       }
+       console.log(newArr3);
+        // 分割字符串
+         var  str = '';
+         var  s = '|'
+         for (var i = 0 ; i < week.length; i++) {
+             str += week[i] + s
+         } 
+         console.log(str);
+         //新增数组元素
+        var arr3= [];
+        for (var i = 0 ; i < 20 ; i++) {
+           arr3[i] = i + 1 ;
+        }
+        console.log(arr3);
+
+        arr3[arr3.length] = 21;
+        console.log(arr3);
+
+        arr3.length = 10;
+        console.log(arr3);
+
+        arr3.length = 15;
+        console.log(arr3);
+
+        arr3[16] = 22;
+        console.log(arr3);
+
+        // 冒泡排序 
+
+        var arr4 = [3,56,23];
+        for ( var i = 0 ; i <arr4.length-1;i++) {
+            for ( var j = 0; j < arr4.length - 1 - i ; j++) {
+                if (arr4[j] > arr4[j+1]) {
+                var temp = arr4[j];
+                arr4[j] = arr4[j+1];
+                arr4[j+1] =temp
+                }
+            }
+        }
+        console.log(arr4);
+
+
+// 求和函数
+function getSums( num1 , num2) { 
+    var sum2 = 0;
+    for ( var i = num1; i <= num2; i++ )  {
+         sum2 += i;
+    }
+    console.log(sum2);
+}
+// 调用
+ getSums( 2,11);
+
+ function getSum(number1,number2) {
+  number1+number2;
+ }
+    console.log( getSum(3,7)); 
+    
+    // 函数比较最大值
+    function getMax(n1,n2) {
+      return  n1 > n2 ? n1 : n2;
+    }
+    console.log(getMax( 5,90));
+       // 函数比较最小值
+       function getMin(n1,n2) {
+      return  n1 > n2 ? n2 : n1;
+    }
+    console.log(getMin( 5,90));
+    // 函数比较数组中最大值
+    function getMax1(arr) {
+        var maxNum = arr[0];
+        for (var i = 1 ; i < arr.length; i++) {
+  if (arr[i] > maxNum) {
+ maxNum = arr[i]
+  }
+       }
+       return maxNum
+        
+    }
+    var res = getMax1([5,3,678,5,64,3,233]);
+    console.log( res);
+
+
+    arr7 = [123,45,35,46,45];
+    arr7.push(3,5,6)
+    console.log(arr7);
+    arr7.pop() ;
+    console.log(arr7);
+    console.log(arr7.length);
+    arr7.unshift(4,2,1) ;
+    console.log(arr7);
+    arr7.shift() ;
+    console.log(arr7);
+    arr7.reverse();
+    console.log(arr7);
+    </script>
+</body>
+</html>

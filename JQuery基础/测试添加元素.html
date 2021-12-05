@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+   <style>
+        .father {
+            position: relative;
+            overflow: hidden;
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        padding: 10px;
+        border: 5px solid #ccc;
+        margin: 20px;
+    }
+    .son {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 100px;
+        height: 100px;
+        background-color: purple;
+    }
+   </style>
+</head>
+<body>   
+    <p>2</p>
+    <p>3</p>
+    <p>6</p>  
+   <script>
+    var  arr = ['pink','blue','red']
+    $('p').each(function( i , domEle){
+        $(domEle).css('color',arr[i])
+    })
+    // 创建
+    var span1 =$('<span>后面添加一个 </span>');
+    var span2 =$('<span>前面添加一个 </span>');
+    var span3 =$('<span>前面加一个兄弟 </span>');
+    var span4 =$('<span>后面加一个兄弟 </span>');
+    var span =$('<span>添加</span>');
+    // 添加
+    // 内部
+    $('p').append(span1); // 后面加
+    $('p').prepend(span2);// 前面加
+    $('p').after(span3);
+    $('p').before(span4);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 当前后添加同一个元素的时候出现了问题 最后一个元素的添加异常 好像只显示所有添加中的第一个
+
+
+   </script>
+   
+</body>
+</html>

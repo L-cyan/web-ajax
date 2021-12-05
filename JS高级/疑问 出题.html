@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let age = 100;  // local
+        var obj = { //window
+        	age: 20,
+        	say: () => {
+        		alert(this.age)
+        	}
+        }
+        obj.say()
+    
+
+        var person = {
+            name :'anne',
+            gender : true  // true 男 false 女
+        }
+        let {name , gender} =person
+        // let info = `姓名：${name} 性别：${gender? '男' :'女'}`
+        // console.log(info);
+
+        // 模板函数方式 抽离 封装
+        function myTab(str,name,gender) {
+            console.log(str); //["姓名：", " 性别：", "", raw: Array(3)]
+            console.log(str,name,gender); //["姓名：", " 性别：", "", raw: Array(3)] "anne" true
+            gender = gender ? '男' :'女'
+            return  str[0]+name+str[1]+gender
+        }
+        var  res = myTab`姓名：${name} 性别：${gender}` // 模板函数不加（） 而是直接跟模板 每一个模板字符串 相当于一个，  最后空一个数据 数组形式可以在函数内写逻辑 返回拼接的结果
+        console.log(res);
+
+    </script>
+</body>
+</html>

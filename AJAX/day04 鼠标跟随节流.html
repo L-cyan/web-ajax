@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+    <style>
+        html ,body {
+            margin: 0;
+    padding: 0;
+    overflow: hidden; 
+        }
+        #angel {
+            position: absolute
+        }
+    </style>
+</head>
+<body>
+    <img src="./angel.gif" alt="" id="angel"/>
+<script>
+    
+    $(function(){
+        // 1.1鼠标跟随 获取图片元素
+        var angel = $('#angel')
+        // 2节流 2.1定义节流阀为空
+        var timer = null
+        // 1.2监听文档的 mousemove 事件
+    $(document).on('mousemove',function(e){
+        // 2.3节流阀不为空  不操作
+        if (timer) {return}
+        timer = setTimeout(function(){
+ // 1.3改变图片位置
+angel.css('left',e.pageX+'px').css('top',e.pageY+'px')
+// 2.2设置了鼠标跟随效果后，清空 timer 节流阀，方便下次开启延时器
+timer =null
+        },16)
+        console.log(1);
+    })
+    })
+</script>
+</body>
+</html>

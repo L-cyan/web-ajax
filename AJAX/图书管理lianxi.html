@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css"/>
+    <script src="./lib/jquery.js"></script>
+</head>
+<body style="padding: 15px;">
+    <!-- 创建panel面板 -->
+    
+    <div class="panel panel-primary">
+          <div class="panel-heading">
+                <h3 class="panel-title">111</h3>
+          </div>
+          <div class="panel-body form-inline">
+               
+               <div class="input-group">
+                   <div class="input-group-addon">$</div>
+                   <input type="text" class="form-control" id="1" placeholder="书名">
+               </div>
+               <div class="input-group">
+                   <div class="input-group-addon">$</div>
+                   <input type="text" class="form-control" id="2" placeholder="作者">
+               </div>
+               <div class="input-group">
+                   <div class="input-group-addon">$</div>
+                   <input type="text" class="form-control" id="3" placeholder="出版社">
+               </div>
+               <button type="button" class="btn btn-primary">button</button>
+               
+               
+          </div>
+    </div>
+    <!-- 列表 -->
+    
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+  
+ <script>
+     $(function(){
+        getBooks()
+        function getBooks(){
+             $.get('http://www.liulongbin.top:3006/api/getbooks',function(res){
+                 console.log(res);
+                 if (res.status == 200) {
+                     var row = []
+                     $.each(res.data,function(i, item){
+                 row.push(` <tr>
+                <td>${item.id}</td>
+                <td>${item.bookname}</td>
+                <td>${item.author}</td>
+                <td>${item.publisher}</td>
+                <td><a href="#" id ="del" data-id = "${item.id}">删除</a></td > 
+            </tr>`)
+                     })
+                     $('#tbody').empty().append(row.join(''))
+                 }
+             })
+         }
+        //  删除功能
+        $('#tbody').on('click','#del',function(){
+            var index = $(this).attr('data-id')
+            console.log(index);
+            $.get('http://www.liulongbin.top:3006/api/delbook',{id: index},function(res){
+                if(res.status !== 200) return alert('是啊比')
+                getBooks() 
+            })
+        })
+        // 添加功能
+        
+        $('.btn-primary').on('click',function(){
+            var a1 = $('#1').val().trim()
+        console.log(a1);
+        var a2 = $('#2').val().trim()
+        var a3 = $('#3').val().trim()  
+            if (a1.length <= 0 ||a2.length <= 0 ||a3.length <= 0 ) {
+                return  alert('输入正确')
+            }
+            $.post('http://www.liulongbin.top:3006/api/addbook',{
+                bookname: a1,
+                author: a2,
+                publisher: a3,
+            },function(res){
+                console.log();
+                if (res.status !== 201) return alert('shibai')
+                getBooks() 
+                $('#1').val("")
+                $('#2').val('')
+                $('#3').val('')
+            })
+        })
+
+     })
+ </script>   
+    
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(Math.max(1,3,45,7658,324));
+        console.log(Math.max()); // -Infinity
+        console.log(Math.min()); // Infinity
+        console.log(Math.max(1,3,45,'1')); // 45 
+        console.log(Math.max(1,3,45,'1大师傅')); // NaN 
+
+        // 自己封装Math对象
+         var myMath = {
+             PI:3.14,
+             max:function () {
+                var  max = arguments[0];
+                 for ( var i = 1 ; i < arguments.length; i++) {
+                    if (arguments[i] > max) {
+                        max = arguments[i]
+                    }
+                 }
+                return max;
+                },
+            min:function () {
+                  var min = arguments[0];
+                 for ( var i = 1 ; i < arguments.length; i++) {
+                    if (arguments[i] < min) {
+                        min = arguments[i]
+                    }
+                 }
+                return min;
+                }
+         }
+         console.log(myMath.PI);
+         console.log(myMath.max(1,2,45,6,7));
+         console.log(myMath.min(1,2,45,6,7));
+         // 平均值以及取整
+         console.log(Math.abs(67));
+         console.log(Math.abs(-99));
+         console.log(Math.abs('67'));
+         console.log(Math.abs('67asd'));
+
+         console.log(Math.floor(4.45));
+         console.log(Math.ceil(5.2));
+         console.log(Math.round(5.2));
+         console.log(Math.round(-5.2));
+         console.log(Math.round(5.5));
+         console.log(Math.round(-5.5));
+        // 两数之间随机整数 包含两整数
+         function getRandom(min, max) {
+            return  min + Math.floor(Math.random()*( max - min +1));
+         }
+         console.log( getRandom(1,9));
+         // 随机点名
+         var arr = [ 'w' ,'x','y','z'];
+         console.log(arr[getRandom(0,arr.length-1)]);
+         // 猜数字- 限制次数
+        //  var random = getRandom(1,50);
+        //  console.log(random);
+        //  for (var i = 1 ; i <= 10;i++) {
+        //      var num =parseInt(prompt('输入1-50 随机数字')) ;
+        //      if ( num > random ) {
+        //          alert('大了')
+        //      } else if (num < random ) {
+        //         alert('小了')
+        //      } else {
+        //         alert('正确')
+        //         break;
+        //      }
+        //  }
+        //  alert (`${i > 10 ? '次数用完': 'success'}`)
+         // 猜数字-简便
+        //  var random = getRandom(1,10);
+        //  while (true){
+        //     var num =parseInt(prompt('输入1-50 随机数字')) ;
+        //      if ( num > random ) {
+        //          alert('大了')
+        //      } else if (num < random ) {
+        //         alert('小了')
+        //      } else {
+        //         alert('正确')
+        //         break;
+        //      }
+        //  }
+        // 封装 格式化的日期时间
+        // function getNow() {
+        //  var  date = new Date();
+        //  var year = date.getFullYear();
+        //  var month = date.getMonth() + 1; //从0开始-11
+        //  var dates = date.getDate();
+        //  var  day = date.getDay();
+        //  var arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六']
+        //  var h = date.getHours();
+        //  h = h > 10 ? h :'0' + h;
+        //  var m = date.getMinutes();
+        //  m = m > 10 ? m :'0' + m;
+        //  var s = date.getSeconds();
+        //  s = s > 10 ? s :'0' + s;
+        //  return  `今天是：${year}年${month}月${dates}日 ${arr[day]} ${h}:${m}:${s} `;   
+        // }
+        // console.log( getNow());
+        // 实例化Date对象
+        var now = new Date();
+        // 1. 用于获取对象的原始值
+        console.log(now.valueOf())	
+        console.log(now.getTime())	
+        // 2. 简单写可以这么做
+        var now = + new Date();	
+        console.log(now);		
+        // 3. HTML5中提供的方法，有兼容性问题
+        var now = Date.now();
+        console.log(now);
+
+        // 倒计时
+        // function countTime (target) {
+        //     var nowTime = + new Date();
+        //     var targetTime = + new Date(target);
+        //     // 剩余s
+        //     var lastS = (targetTime -nowTime ) / 1000;
+        //     // 转换为时间
+        //     var d = parseInt(lastS / 60 / 60 / 24);
+        //     d = d < 10 ? '0' + d : d;
+        //     var h = parseInt(lastS / 60 / 60 % 24);
+        //     h = h < 10 ? '0' + h : h;
+        //     var m = parseInt(lastS / 60 % 60 );
+        //     m = m < 10 ? '0' + m : m;
+        //     var s = parseInt(lastS % 60 );
+        //     s = s < 10 ? '0' + s : s;
+        //     return `倒计时：${d}天${h}时${m}分${s}秒`
+        // }
+        // console.log(countTime ('2021-10-30 15:54:01'));
+        
+        // var arr = new Array('ds1')
+        // console.log(arr);
+        // 翻转数组优化
+        //  function reverse(arr) {
+        //      if ( arr instanceof Array) {
+        //          //  另一种方法
+        //     // if (Array.isArray(arr)) {
+        //         var  newArr = [] ;
+        //         for ( var i = arr.length - 1 ; i >= 0 ; i--) {
+        //             newArr.push(arr[i]);
+        //         }
+        //         return newArr;
+        //      } else {
+        //           return 'error ： 必须为数组[ , , , …]'
+        //      }           
+        //  }
+        //  console.log(reverse(1,2,58,9));
+        //  console.log(reverse([1,2,58,9]));
+         // 找出工资超过2000的
+        //  var arr1 = [12445,342,3456,456,765,77876];
+        //  var newArr1 = [];
+        //  for ( var i = 0 ; i < arr1.length ; i++) {
+        //      if ( arr1[i] > 2000) {
+        //         newArr1.push(arr1[i])
+        //      }
+        //  }
+        //  console.log(newArr1);
+        // 数组排序
+         var arr2 = [12445,342,34,456,765,77876];
+         console.log(arr2.sort());
+         console.log(arr2.sort( function (a, b) {
+                  return a - b;
+         }));
+         console.log(arr2.sort( function(a, b) {
+            return b - a;
+         } ));
+         // 数组索引
+          var arr = [ 1,3,43,67,89,9,0,1,3,56,2,345,1]
+          console.log(arr.indexOf(3));
+          console.log(arr.indexOf(19));
+          console.log(arr.lastIndexOf(3));
+          console.log(arr.lastIndexOf(19));
+        // 数组去重 -索引方式
+        function unique(arr) {
+             var  newArr = [] ;
+             for ( var i = 0 ; i < arr.length ; i++) {
+                 if ( newArr.indexOf(arr[i]) === -1) {
+                    newArr.push(arr[i]);
+                 }
+             }
+             return newArr;
+        }
+        console.log( unique([1,2,3,45,1,2,34,6,57,78,2]));
+        // 数组转化为字符串
+         console.log(arr.toString());
+         console.log(arr.join());
+         console.log(arr.join('&'));
+         // 查找字符串出现的位置和次数
+         var str = 'asdfdsffewsdfd';
+         var index = str.indexOf('f');
+         var num = 0 ;
+         while (index !== -1) {
+             console.log(index);
+             index = str.indexOf('f' , index + 1)
+             num++;
+         }
+        console.log(num);
+        // 根据位置返回字符
+        console.log(str.charAt(2));
+         // 返回ASCII码
+         console.log(str.charCodeAt(3));
+        // 遍历字符
+        for ( var i = 0; i < str.length;i++) {
+            console.log(str.charAt(i));
+        }
+        // 
+        var obj = {
+            a:1,
+        }
+        obj['a']++
+        console.log(obj);
+        
+        var str5 = 'sadfagfhfgdfg';
+        for (var k in  str5) {
+            console.log(str[k]);
+        }
+        var arr5 = [1,35,6,8,08];
+        // for (var k of obj) {
+        //     console.log(k);
+        // }
+
+        // 遍历字符串中 出现最多的字符和次数
+        var str5 = 'sadfagfhfgdfg';
+    
+        console.log(str5.concat('eee'));
+     
+        console.log( str5.substr(2,10));
+       
+        console.log( str.slice(3,7));
+        // 创建对象装字符元素 属性=字符  值=次数
+        var obj2 = {
+         } 
+        for (var i = 0 ; i < str5.length; i++) {
+              var chars = str5[i]; // 或者str5.charAt(i)
+              if  (obj2[chars]) {
+                obj2[chars] ++;
+              } else {
+                obj2[chars] = 1;
+              }
+        } 
+        console.log(obj2);
+        //  遍历将对象中最大值obj2[k] 和属性 k查找出来
+        var max = 0;
+        var ch = '';
+        for (var k in obj2) {
+            if (obj2[k] > max) {
+                max = obj2[k];
+                ch = k; // 不可以引号k 这样就不是变量了
+            }
+        }
+        console.log( max ,ch);
+        // 替换字符 只替换第一个 全部替换 循环
+        var str5 = 'sadfagfhfgdfg';
+        while (str5.indexOf('f') != -1) {
+            str5 = str5.replace('f','哈'); // 第一个要替换 第二个替换成 
+        }
+        console.log(str5);
+        
+    </script>
+</body>
+</html>

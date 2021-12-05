@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/axios.js"></script>
+</head>
+<body>
+        姓名：<input type="text" autocomplete="false"/>
+        密码；<input type="text" />
+        <button type="submit" id="btn">get提交</button>
+        <button type="submit" id="btnp">post提交</button>
+        <button type="submit" id="btnag">axios直接get提交</button>
+        <button type="submit" id="btnap">axios直接post提交</button>
+    <script>
+        // axios发起get请求
+        document.querySelector('#btn').addEventListener('click',function(){
+            var url ='http://www.liulongbin.top:3006/api/get'
+            var paramsObj = {name:'ss',age:2}
+            axios.get(url,{params:paramsObj}).then(function(res){
+                // res axios包装的对象 想要返回的数据 res.data
+                console.log(res.data);
+            })
+        })
+        // axios发起POST请求
+        document.querySelector('#btnp').addEventListener('click',function(){
+            var url ='http://www.liulongbin.top:3006/api/post'
+            var paramsObject = {name:'ss',age:22}
+            axios.post(url,paramsObject).then(function(res){
+                console.log(res.data);
+            })
+        })
+        document.querySelector('#btnag').addEventListener('click',function(){
+            axios({
+                method:'get',
+                url:'http://www.liulongbin.top:3006/api/get',
+                params:{
+                    name:'zs',
+                    age:3
+                }
+            }).then(function(res){
+                console.log(res.data);
+            })
+        })
+        document.querySelector('#btnap').addEventListener('click',function(){
+            axios({
+                method:'POST',
+                url:'http://www.liulongbin.top:3006/api/post',
+                data:{
+                    name:'zss',
+                    age:366
+                }
+            }).then(function(res){
+                console.log(res.data);
+            })
+        })
+    </script>
+</body>
+</html>

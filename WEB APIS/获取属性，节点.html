@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header class="box">
+        <div class="saa" data-index="2"  data-name-num="anne">123 </div>
+        <div class="bother">1</div>
+        <div class="brother1">3</div>
+        <div class="brother2">5</div>
+    </header>
+    <ul class="ul">
+        <li>1</li>
+        <li></li>
+        <li></li>
+        <li>4</li>
+    </ul>
+    <ol class="ol">
+        <li>1</li>
+        <li></li>
+        <li></li>
+        <li>4</li>
+    </ol>
+   
+    <script>
+        var divs = document.getElementsByTagName('div')
+        console.log(divs[0].className);
+        console.log(divs[0].getAttribute('data-index'));
+        console.log(divs[0].getAttribute('class'));
+
+        divs[0].id = 1;
+        divs[0].setAttribute('class','aaa');
+        divs[0].setAttribute('aaaaaa','bbb');
+
+       // divs[0].removeAttribute('data-index')
+       
+        console.log( divs[0].dataset);
+        console.log( divs[0].dataset.index); 
+        console.log( divs[0].dataset.nameNum);
+
+        console.log(divs[0].parentNode);
+
+        // DOM 提供方法 
+        var ul = document.querySelector('.ul')
+        var lis = ul.querySelectorAll('li')
+        // 子节点 
+        console.log(ul.childNodes);
+        console.log(ul.childNodes[0].nodeType);
+        console.log(ul.children);
+
+        console.log(ul.lastChild);
+        console.log(ul.firstChild); //#text
+        // 常用 第一个最后一个子元素
+        console.log(ul.children[0]);
+        console.log(ul.children[ul.children.length - 1]);
+        // 有兼容性问题
+        console.log(ul.firstElementChild);
+        console.log(ul.lastElementChild);
+
+        // 兄弟节点查找
+        var bro = document.querySelector('.bother')
+        console.log(bro.nextSibling);
+        console.log(bro.previousSibling);
+        // 兼容性问题 
+        console.log(bro.nextElementSibling);
+        console.log(bro.previousElementSibling);
+
+        // 添加元素
+        // 创造元素
+        var bro4 = document.createElement('div')
+        // 添加节点
+        var box = document.querySelector('.box')
+         box.appendChild(bro4)
+
+        //  指定位置前添加
+        var bro3 = document.createElement('div')
+         box.insertBefore (bro3,bro)
+    </script>
+</body>
+</html>

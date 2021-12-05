@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function Father(uname ,age){
+           this.uname = uname;
+           this.age = age;
+           this.sing = function(){
+               console.log('我会唱歌');
+           }   
+       }
+       Father.prototype.say = function(){
+           console.log('说话');
+       }
+       function Son(uname ,age,score){
+        // 借用继承 使用call来实现
+        Father.call(this,uname,age)
+        this.score = score
+       }
+       var  son = new Son('yige',1,100)
+       console.log(son);
+    //    想要继承父类的方法  不可以son.prototype = Father.prototype 公用一个内存 一改全改
+    //  借助中间的父亲实例化对象 原型链查找父类原型的方法 但这种方法 以对象形式赋值 需要constructor重新指回son构造函数
+    Son.prototype = new Father()
+    Son.prototype.constructor = son
+    Son.prototype.exam = function(){
+        console.log('儿子考试');
+    }
+       console.log(Son.prototype );
+       console.log(Father.prototype );
+       console.log(son );
+    </script>
+</body>
+</html>

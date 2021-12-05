@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <!-- <form action="index.html">
+        用户名：<input type="text" name= "username"> 
+        <button>登录</button>
+    </form> -->
+    <button>登录</button>
+
+    <script>
+        var btn = document.querySelector('button')
+        // 三种跳转方式
+        btn.addEventListener('click',function(){
+            // location.href = 'index.html';
+           //  location.assign('index.html') 可后退
+           location.replace('index.html')
+        })
+        
+
+
+    </script>
+
+</body>
+</html>

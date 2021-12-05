@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // arguments  伪数组 可遍历有长度索引 存储实参
+        function fn() {
+            console.log(arguments);
+            for (var i = 0 ; i < arguments.length ; i++)  {
+                console.log(arguments[i]);
+            }            
+        }
+        fn(2,4,5,7,4)
+       //  比较最大值
+       function getMax() {
+           var max = arguments[0];
+           for (var i = 1; i < arguments.length; i++) {
+                if ( arguments[i] > max) {
+                    max =  arguments[i]
+                }
+           }
+           return max;
+       }
+       console.log(getMax(2,4,6,7,9,1));
+       console.log(getMax(2,4,6,7,9,1,13,345,54,68,78));
+       console.log(getMax(2,4,6,7,9,1,34,5,68,8,980));
+       // 翻转数组
+       function reverse() {
+                var  newArr = [];
+                for (i = 0 ; i < arguments.length;i++) {
+                    newArr.unshift(arguments[i])
+                }
+                return newArr ;
+       }
+       //有形参需要定义数组
+      // var  arr1 = [2,435,76,78,23,1];
+     //  var arr2 = ['s','地方','1','第三方'];
+       console.log( reverse(2,435,76,78,23,1));
+      // console.log( reverse(arr2));
+      // 封装冒泡排序 
+      function sort(arr) {
+        for (var i = 1; i <= arr.length - 1; i++)  {
+            for (var j = 0 ; j < arr.length - i; j++) {
+                if ( arr[j+1] < arr[j]) {
+                    var temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+        return arr
+      }
+      var arr1 = sort([1,35,68,2,213,34,45,3]) 
+      console.log(arr1);
+      // 封装闰年
+      function isLeapYear(year) {
+          var flag = false ;
+          if ( year % 4 == 0 && year % 100 !=0 || year % 400 == 0){
+            flag = true ;
+          }
+          return flag;
+      }
+      console.log(isLeapYear(2000));
+      // 函数调用 
+      function fn1() {
+          console.log(1);
+          fn2();
+          console.log('一呀');   
+      }
+      function fn2() {
+          console.log(2);
+          console.log('二呀');   
+      }
+      fn1();
+     // 判断2月有多少天
+      function backDay() {
+          var yearInput = prompt('输入年份') 
+          if (isLeapYear(yearInput)) {
+              alert('闰年29天')
+          } else  {
+            alert('平年28天')
+          }     
+      }
+      backDay();
+      // 声明函数 
+       function fn() {
+           
+       }
+       fn();
+
+       // 方法2 
+       var  fn = function() {
+
+       }
+       fn();
+       // 
+       var num3 = 10
+       function name() {
+           var num4 =89; //局部
+           num5 = 45 //全局
+       }
+      
+       console.log(num3);
+    //    console.log(num5);
+    //    console.log(num4);
+
+       var a = 1 ;
+       function fn1() {
+           var a = 2;
+           var b = '22';
+           fn2();
+           function fn2() {
+               var a = 3;
+                fn3();
+                function fn3() {
+                    var a = 4;
+                    console.log(a);
+                    console.log(b);
+                }
+               
+           }
+
+       }
+       fn1()
+
+       // 预解析案例
+       f1();
+       console.log(c);
+       console.log(b);
+       console.log(a);
+       function f1() {
+           var a = b = c = 9;
+           console.log(c);
+            console.log(b);
+            console.log(a);
+       }
+       // 相当于 
+       function f1() {
+           var a ;
+           a = b = c = 9;
+           console.log(c); //9
+            console.log(b); //9
+            console.log(a); //9 
+       }
+       f1();
+       console.log(c);
+       console.log(b);
+       console.log(a);
+      // 字面量创建
+      var  obj = {
+          name: '可可' ,
+          type: '阿拉斯加犬',
+          age:5,
+          color:'red',
+          skill: function() {
+                console.log('bark','showFilm');
+          }
+      }
+      console.log( obj.type);
+      obj.skill();
+      // new 方法创建 
+      var obj1 = new Object();
+      obj1['uname'] = '鸣人' ;
+      obj1.gender = '男' ;
+      obj1.age = '19岁' ;
+      obj1.skill =  function() {
+          console.log('影分身术');
+      }
+      console.log(obj1.gender);
+      console.log(obj1.uname);
+      obj1.skill();
+     // 构造函数法创建
+      function Hero ( blood, name, type) {
+         this.blood = blood;
+         this['name'] = name;
+         this.type = type;
+         this.skill = function ( skills) {
+             console.log(skills );    
+         }
+      }
+      var houYi = new Hero ( 18000 , '后裔', 'AD');
+      var lianPo = new Hero ( 28000 , '廉颇', 'AD');
+      console.log(houYi.blood);
+      console.log(houYi.name);
+      console.log(lianPo['type']);
+      houYi.skill('输出');
+      // 遍历对象
+       for ( var k in obj1) {
+        console.log(k); // 属性名
+        console.log(obj1[k]); // 属性值 
+       }
+
+       
+    </script>
+</body>
+</html>

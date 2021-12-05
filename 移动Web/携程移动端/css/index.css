@@ -1,0 +1,257 @@
+body {
+    min-width: 320px;
+    max-width: 540px;
+    margin: 0 auto;
+    color: #000;
+    font:normal 14px/1.5 Tahoma,"Lucida Grande",Verdana,"Microsoft Yahei",STXihei,hei;
+    background-color: #f2f2f2;
+    -webkit-tap-highlight-color: transparent;
+    /* 影藏横向滚动条 */
+    overflow-x: hidden;
+    padding-top: 44px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.search {
+    display: flex;
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 44px;
+    min-width: 320px;
+    max-width: 540px;
+    background-color: #f6f6f6;
+    font-size: 12px;
+    color: #666;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+.user {
+   
+    display:flex;
+   align-content: center;
+   flex-wrap: wrap;
+   justify-content: center;
+   /* background-color: blue; */
+   width: 44px;
+   height: 44px;
+  
+}
+.user .logo {
+    width: 23px;
+    height: 23px;
+    background:url(../images/sprite.png) no-repeat -59px -195px;
+    background-size: 104px 328px;
+
+}
+.user  p {
+    color: #0C97DD;
+    font-size: 12px;
+   
+}
+.sou {
+    flex: 1;
+    height: 26px;
+    /* 因为有边框 所以设置24 也可以将这个设置flex 里面的侧轴居中 */
+    line-height: 24px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    margin: 7px 10px ;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+
+
+}
+.sou i {
+    margin: 0 5px;
+    font-size: 14px;
+}
+.banner img {
+    width: 100%;
+}
+.local-nav {
+    display: flex; 
+    height: 64px;
+    margin: 3px 4px;
+    background-color: #fff;
+    border-radius: 8px;
+    font-size: 12px;
+}
+.local-nav  li {
+    
+    flex: 1;
+
+}
+.local-nav  li a {
+    /* a的高度跟容器不一样 设置一下 在居中就行了 */
+    height: 64px;
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    /* 应该设置主轴y轴比较好 */
+    justify-content: center;
+    align-items: center;
+}
+.local-nav  li .img {
+    width: 32px;
+    height: 32px;
+    background: url(../images/localnav_bg.png) no-repeat ;
+    background-position: 0 0;
+    background-size: 32px auto;
+    /* margin: 0 auto; */
+}
+.local-nav  li:nth-child(2) .img{
+    background-position: 0 -32px;
+}
+.local-nav  li:nth-child(3) .img{
+    background-position: 0 -64px;
+}
+.local-nav  li:nth-child(4) .img{
+    background-position: 0 -96px;
+}
+.local-nav  li:nth-child(5) .img{
+    background-position: 0 -128px;
+}
+/* 更换图片 属性选择器 然后后面用类名调整 可能更优 */
+.local-nav  li p {
+    color: #222;
+}
+.local-list {
+    display: flex;
+    /* height:88px ; */
+    /* 高度可以不给 然后就 内容撑开*/
+    background:-webkit-linear-gradient( left,
+        orange, rgba(245, 222, 50, 0.6)
+        );
+    border-radius: 8px;
+    font-size: 12px;
+    margin: 0 4px;
+}
+.local-list div {
+    flex: 1;
+    display:flex;
+flex-direction: column;
+}
+.local-list div:nth-child(-n+2) 
+{border-right:  1px solid #fff;}
+
+.local-list div:first-child img {
+  width: 100%; 
+  
+}  
+.local-list div:nth-child(n+2) a:first-child{
+border-bottom: 1px solid #fff;
+}
+.local-list p,.local-list a {
+    height: 44px;
+    line-height: 44px;
+    color: #fff;
+    font-size: 14px;
+    text-shadow: 1px 1px  rgba(0, 0, 0, .3);
+    text-align: center;
+}
+.num2 {
+    margin: 3px 4px ;
+    background:-webkit-linear-gradient( right top,
+        blue, rgba(50, 76, 240, 0.6)
+        );
+}
+.num3 {
+    background:-webkit-linear-gradient(
+        green, rgba(53, 248, 141, 0.6)
+        );
+}
+.shortcut-nav ul{
+    display: flex;
+    flex-wrap: wrap;
+background-color: #fff;
+    border-radius: 8px;
+    font-size: 12px;
+    margin: 0 4px;
+}
+.shortcut-nav  ul li {
+    /* width: 20%; */
+    flex: 20%;
+    
+}
+.shortcut-nav  ul li a {
+   
+    /* height: 58px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+.shortcut-nav .logo-n {
+    width: 24px;
+    height: 24px;
+    background: url(../images/subnav-bg.png) no-repeat;
+    background-position: 0 0;
+    background-size: 24px auto; margin: 5px auto;
+} 
+.sales-box {
+    margin: 4px;
+    background-color: #fff;
+}
+.sales-hd {
+    height: 44px;
+    line-height: 44px;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    overflow: hidden;
+  
+/* 三种写法 1 h2优化定位 2flex 3 浮动 */
+  
+}
+.sales-hd h2 {
+    float: left;
+    font-size: 0;
+    width: 79px;
+    background: url(../images/hot.png) no-repeat 0 -20px/79px auto;
+    margin-top:15px ;
+   
+}
+.sales-hd a {
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    float:right;
+    background: -webkit-linear-gradient(left, #FF506C, #FF6BC6);
+    border-radius: 15px;
+    padding: 2px 20px 2px 10px;
+    color: #fff;
+    margin-top: 7px;
+}
+.sales-hd a::after {
+    content: '';
+    position: absolute;
+    top:13px;
+    right: 10px;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    transform: rotate(45deg)
+}
+.sales-bd .row {
+display: flex;
+}
+.sales-bd .row a {
+    flex:1;
+    border-bottom: 1px solid #ccc;
+    
+}
+.sales-bd .row a img {
+    width: 100%;
+}
+.sales-bd .row a:first-child {
+    border-right: 1px solid #ccc;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="search" name="" id="">
+    <script>
+        // document.addEventListener('keyup' , function() {
+        //     console.log('弹起');
+        // })
+        // document.addEventListener('keypress' , function() {
+        //     console.log('按下press');
+        // })
+        // document.addEventListener('keydown' , function() {
+        //     console.log('按下down');
+        // })
+        // 根据keyCode属性判断按了哪个键
+        // document.addEventListener('keyup' , function(e) {
+        //   console.log('up' + e.keyCode);
+        //   if (e.keyCode == 65) {
+        //     console.log('按得a键');
+        //   } else {
+        //       alert('按得不是a键')
+        //   }
+        // })
+
+        // document.addEventListener('keypress' , function(e) {
+        //   console.log('press' + e.keyCode);
+        // })
+        // 京东s键获取搜索框焦点
+        var ipt = document.querySelector('input')
+        // keydown会输入s  
+        document.addEventListener('keyup', function(e){
+            if (e.keyCode == 83) {
+                // 获取焦点方法
+                ipt.focus();
+            }
+        }) 
+     
+
+    </script>
+</body>
+</html>

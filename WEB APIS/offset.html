@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+           position: relative;
+            width: 300px;
+            height: 400px;
+            background-color: pink;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        .son {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 5px solid red;
+            background-color: purple;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="father" style="width: 350px;">
+        <div class="son"><span>1234567</span></div>
+    </div>
+    <script>
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        var span = document.querySelector('span')
+
+        console.log(father.offsetTop);
+        console.log(son.offsetTop);
+        console.log(son.offsetParent);
+        console.log(span.offsetParent);
+        console.log(span.parentNode);
+        console.log(span.offsetWidth);
+        console.log(son.offsetWidth);
+        console.log(son.clientTop);
+        console.log(son.clientLeft);
+
+
+        // style 和offset区别
+        console.log(father.style.width);
+        father.style.width = '500px'
+        console.log(father.style.width);
+        // son 盒子的宽高
+        var w = son.offsetWidth;
+        var h = son.offsetHeight;
+
+        //获取鼠标在容器内的位置
+        father.addEventListener('mousemove',function(e){
+            var x = e.pageX -father.offsetLeft;
+            var y = e.pageY -this.offsetTop;
+            span.innerHTML=`x坐标是：${x},y坐标是：${y},`;
+            // 跟随鼠标移动son
+            son.style.left =  x - w / 2 +'px';
+            son.style.top =  y - h / 2  +'px';
+
+        });
+        
+        // 立即执行函数 不需要调用 直接执行 独立的作用域 避免命名冲突
+        // ① (function(){})()
+        (function(a){
+             console.log(a);})(4);
+        // ② (function(){}())
+        (function(a,b){
+            console.log(a+b);}(5,6))
+
+
+
+
+
+
+    </script>
+</body>
+</html>

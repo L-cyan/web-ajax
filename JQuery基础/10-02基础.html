@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+   <style>
+        .father {
+            position: relative;
+            overflow: hidden;
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        padding: 10px;
+        border: 5px solid #ccc;
+        margin: 20px;
+    }
+    .son {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 100px;
+        height: 100px;
+        background-color: purple;
+    }
+   </style>
+</head>
+<body>
+    <!-- <div class="f" id="s" data-index='2'>123dsf sas <span>dsdf </span> </div>
+    <a href="www.123"></a>
+    <input type="text" value="sdfjsdfh"> -->
+    <p>2</p>
+    <p>3</p>
+    <p>6</p>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+   <script>
+    //获取属性
+//    $(function(){
+//     $('a').prop('href','123');
+//     console.log( $('a').prop('href'))
+//     })
+//     $('div').attr('index',5)
+//     console.log( $('div').attr('index'));
+//     console.log($('div').data('index'));
+    // 文本属性
+    //$('div').html('ss');
+    // console.log( $('div').html());
+    // $('div').text('aa');
+    // console.log( $('div').text());
+    // $('input').val(3);
+    // console.log(  $('input').val());
+    // console.log( $('div').val());// 什么也没打印
+    // 遍历JQuery对象中的每一项 让设置不同的样式或者获取值
+    var sum = 0 ;
+    var  arr = ['pink','blue','red']
+    $('p').each(function( i , domEle){
+        sum += parseInt($(domEle).text());
+        $(domEle).css('color',arr[i])
+    })
+    console.log(sum);
+    $.each(arr ,function(i , ele){
+        console.log(`${i}的值是${ele}` );
+    })
+    // $.each({
+    //     name:"anne",
+    //     age:18,
+    //     gender:'female'
+    // },function(i , ele){
+    //     console.log(`${i}的信息是${ele}` );
+    // })
+    // 创建
+    var span =$('<span>添加一个 </span>');
+    // 添加
+    // 内部
+    $('p').append(span); // 后面加
+    $('p').prepend(span);// 前面加
+    $('p').after(span);
+    $('p').before(span);
+
+    console.log($('.son').offset());
+    console.log($('.son').offset().left);
+    $('.son').offset({
+        top:100,
+        left:50})
+   console.log($('.son').position());
+console.log($('.son').position().left);
+    $('.son').position({
+        top:100,
+        left:50})
+   </script>
+   
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    //    不可以通过对象赋值的形式来追加 会影响本来的方法也会报错
+      Array.prototype.sum = function(){
+          var sum = 0;
+          for(var  i = 0 ;i < this.length;i++) {
+            sum+=this[i]
+          }
+          return sum
+      }
+      var arr = new Array(1,5,8,9)
+      console.log(arr.sum());
+  </script>
+</body>
+</html>

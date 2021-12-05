@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 不要引入jquery 有问题？ 显示我封装的函数不存在 加了入口函数还是报错 -->
+    <!-- <script src="./lib/jquery.js"></script> -->
+    <!-- <script src="./day03封装Ajax函数.js"></script> -->
+    <script src="./练习封装ajax.js"></script>
+
+ 
+</head>
+<body>
+   <script>
+    //    校验
+    // myAjax({
+        ownAjax({
+        method:'GET',
+        url:'http://www.liulongbin.top:3006/api/getbooks',
+       data:{id:1},
+        success:function(res){
+            console.log(res);
+        }
+    })
+    // myAjax({
+    //     method:'post',
+    //     url:'http://www.liulongbin.top:3006/api/addbook',
+    //     data:{
+    //         bookname: '水但是',
+    // author: '施地方',
+    // publisher: '北的京社'
+    //     },
+    //     success:function(res){
+    //         console.log(res);
+    //     }
+    // })
+
+   </script> 
+</body>
+</html>

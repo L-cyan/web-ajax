@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+        
+        .back {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            right: 30px;
+            bottom: 100px;
+            display: none;
+        }
+        
+        .container {
+            width: 900px;
+            height: 500px;
+            background-color: skyblue;
+            margin: 400px auto;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="back">返回顶部</div>
+    <div class="container">
+    </div>
+    <script>
+       $(function(){
+            // 被卷去的头部 scrollTop()  / 被卷去的左侧 scrollLeft()
+            var boxTop = $('.container').offset().top
+            // 页面滚动事件
+            // window和document 不加''
+            $(window).scroll(function(){
+                if ($(document).scrollTop() >= boxTop) {
+                    $('.back ').fadeIn();
+                } else {
+                    $('.back ').fadeOut();
+                }
+            })
+            // 返回顶部
+            // 动画效果更合适 但是只有元素能动画 不可以写document  body在前一种兼容性写法
+            $('.back').click(function(){
+                $('body , html').stop().animate({
+                    scrollTop:0
+                } )
+            })
+
+
+       })
+            
+
+           
+    </script>
+</body>
+
+</html>

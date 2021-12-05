@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 条件注释，如果小于id9，就添加如下两个文件  （if 如果，lt 小于 less then）-->
+    <!--第一句： 解决ie9以下浏览器对html5新增标签的不识别，并导致CSS不起作用的问题 -->
+    <!--第二句： 解决ie9以下浏览器对 css3 Media Query 的不识别 -->
+    <!--[if lt IE 9]> 
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <style>
+        .row>div {
+            /* border: 1px solid #ccc; */
+            /* background-color: pink; */
+        }
+
+        .num2>div {
+            background-color: blue;
+        }
+
+        .num3>div {
+            background-color: purple;
+        }
+
+        .num4>div {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md-6">^</div>
+                    <div class="col-md-6">*</div>
+                </div>
+
+            </div>
+            <div class="col-md-2">2</div>
+            <div class="col-md-2">3</div>
+            <div class="col-md-2">4</div>
+            <div class="col-md-2">5</div>
+            <div class="col-md-2">6</div>
+        </div> -->
+
+
+        <div class="row num2">
+
+            <div class="col-md-3">左侧</div>
+            <div class="col-md-4 col-md-offset-5">右侧</div>
+        </div>
+        <div class="row num3">
+
+            <div class="col-md-6  col-md-offset-3">2</div>
+
+        </div>
+        <div class="row num4">
+
+            <div class="col-md-3  col-md-push-9">左侧</div>
+            <div class="col-md-4 col-md-offset-5 col-md-pull-8">右侧</div>
+        </div>
+
+</body>
+
+</html>

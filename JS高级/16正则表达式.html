@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建正则两种方式  ①调用RegExp对象的构造函数创建
+        var rg1 = new RegExp(/123/)
+        //  ②字面量 // 之间要有内容 无需引号 不管字符还是数字类型
+        var rg2 = /3466/
+        // 检测正则表达式 test（）是否符合该规则 里面参数为检测的字符串 返回布尔值
+       console.log( rg1.test('123'));  // T
+       console.log( rg2.test('346666')); //T
+
+        //  包含有//中间的字符串返回的都是true  
+       console.log( /456/.test('123456789'));  //T
+        // 边界符（位置符）用来提示字符所处的位置，主要有^【匹配行首的文本】$【行尾的文本】 
+        console.log( /^abc/.test('abcddd')); //T
+        console.log( /abc$/.test('abcab')); //F
+        // ^xxx$ 为精准匹配
+        console.log( /^abc$/.test('abcabc')); //F
+        console.log( /^abc$/.test('abc')); //T
+
+        //  []字符类 匹配内部的一个字符即可返回true  
+       console.log( /[456]/.test('1234'));  //T
+        //  /^[xxx]$/ 表示精准匹配内部的任一个字符才是true
+       console.log( /^[abc]$/.test('abc')); //F
+       console.log( /^[abc]$/.test('a')); // T
+
+        //   -为范围符 在[]内部表示  匹配字符范围内任意一个即可返回true 
+        console.log( /[a-z]/.test('c1中')); // T
+        //   ^[a-z]$ 匹配字符范围内任意一个才返回true 
+        console.log( /^[a-z]$/.test('o')); // T 
+
+        // 字符组合 不要空格  ^[a-zA-Z0-9-_]$ 范围内任意一个即可返回true 
+        console.log( /^[a-zA-Z0-9-_]$/.test('-')); // T
+        // ^[^a-zA-Z0-9-_]$  []内部的^表示取反
+        console.log( /^[^a-zA-Z0-9-_]$/.test('-'));  // F 
+
+        // 量词符  设定某个模式出现的次数。 
+        //  *  重复0次或更多次 >=0
+        console.log( /^a*$/.test('')); // T
+        console.log( /^a*$/.test('a')); // T
+        console.log( /^a*$/.test('aaaa')); // T
+        //  +  重复1次或更多次 >=1
+        console.log( /^a+$/.test('')); // F
+        console.log( /^a+$/.test('a')); // T
+        console.log( /^a+$/.test('aaaa')); // T
+        //  ？  重复0次或1次 0||1
+        console.log( /^a?$/.test('')); // T
+        console.log( /^a?$/.test('a')); // T
+        console.log( /^a?$/.test('aaaa')); // F
+        //  {n}  重复n次
+        console.log( /^a{2}$/.test('')); // F
+        console.log( /^a{2}$/.test('aa')); // T
+        console.log( /^a{2}$/.test('aaaa')); // F
+        //  {n,}  重复>=n次
+        console.log( /^a{2,}$/.test('')); // F
+        console.log( /^a{2,}$/.test('aa')); // T
+        console.log( /^a{2,}$/.test('aaaa')); // T
+        //  {n,m}  重复n到m次
+        console.log( /^a{2,5}$/.test('')); // F
+        console.log( /^a{2,5}$/.test('aa')); // T
+        console.log( /^a{2,5}$/.test('aaaa')); // T
+        console.log( /^a{2,5}$/.test('aaaaaa')); // F
+        console.log( /^(ab){2,5}$/.test('abababab')); //
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

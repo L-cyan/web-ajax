@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入 -->
+<script src="./lib/template-web.js"></script>
+<script src="./lib/jquery.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+ <!-- 定义模板{{}} 标准语法 --> 
+    <script type="text/html" id="tmp-user">
+        <h1>{{name}}</h1>
+        <p>{{age}}</p>
+        <!-- 原文输出 @ -->
+        {{@test}}
+        <!-- 条件输出  {{}} if还有条件表达式 在其中  固定输出语句不用 if要有结束的/if-->
+        {{if flag == 0 }}
+        flag的值为0
+        {{else if  flag == 2}}
+        flag的值为2
+        {{else}}
+        找不到
+        {{/if}}
+        <!-- 循环输出 {{each arr}} {{$index}}  {{$value}} {{/each}}  -->
+        <ul>
+            {{each hobby}}
+            <li> 索引：{{$index}} , 值为{{$value}}</li>
+            {{/each}}
+        </ul>
+        <!-- 时间过滤 {{date1 |管道操作符 将前面数据中找到该变量 传入后面过滤器中 dateFormat}} -->  -->
+        
+        <div> {{date1 | dateFormat}}</div>
+    </script>
+<!-- 定义数据 注意字符串要用'' -->
+<script>
+    var  data = {
+        // 注意对象里 : ,
+         name:'文档',
+         age:12,
+         test: '<h2>原文输出哦</h2>' ,
+         flag:1  ,
+         hobby:['吃饭','睡觉','打豆豆'],
+         date1 : new Date()
+    }
+    // 定义过滤器 XXX.过滤器名字 =  要有return
+    template.defaults.imports.dateFormat = function(date){
+        var  y = date.getFullYear()
+        var  m = date.getMonth() +1
+        var  d = date.getDate()
+
+        return y+'-'+ m+'-'+d
+    }
+    // 调用函数 接受返回结果 template('模板id 不加其他'，数据)
+    var res = template('tmp-user',data)
+    // 渲染
+    $('#container').html(res)
+</script>
+</body>
+</html>                                            

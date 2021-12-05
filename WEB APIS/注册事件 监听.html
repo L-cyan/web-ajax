@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <ul>
+        <li>我是第1个小li</li>
+        <li>我是第2个小li</li>
+        <li>我是第3个小li</li>
+        <li>我是第4个小li</li>
+        <li>我是第5个小li</li>
+    </ul>
+    <div class = "s">啊啊啊大方士大夫士大夫山东士大夫的</div>
+    <div class="father"> 11
+        <div class="son"><a href="www.baidu.com">sdf</a></div>
+    </div>
+    <script>
+        // var  btns = document.querySelectorAll('button')
+        // // 传统方式 事件类型需要 on  且同一个元素 同一个类型有唯一性
+        // btns[0].onclick = function() {
+        //     alert(1)  
+        //     btns[0].onclick = null; 
+        // }
+        // // 事件监听 IE9 支持  事件类不用加on 且为字符串需要''同一个元素 同一个类型有多个处理程序
+        // btns[1].addEventListener('click' ,fn1)
+        // function fn1() {
+        //     alert(3)
+        //     btns[1].removeEventListener('click' ,fn1)
+        // }
+        // btns[1].addEventListener('click' ,function() {
+        //     alert(4)
+        // })
+        // btns[2].attachEvent('onclick' ,fn)
+        // function fn() {
+        //     alert(5)
+        //     btns[2].detachEvent('onclick' ,fn)
+        // }
+            // 事件流
+            var son = document.querySelector('.son');
+            var father = document.querySelector('.father');
+            // 捕获阶段
+            // son.addEventListener ('click',function() {
+            //     alert('son');
+            // },true)
+            // father.addEventListener ('click',function() {
+            //     alert('father');
+            // },true)
+            //冒泡
+            son.addEventListener ('click',function(e) {
+                alert('son');
+                e.stopPropagation();
+                window.event.cancelBubble = true;
+            })
+            father.addEventListener ('click',function() {
+                alert('father');
+            },false)
+            document.addEventListener ('click',function() {
+                alert('document');
+            },false)
+
+            // 事件对象
+            son.onclick = function(e) {
+                // 兼容写法
+                e = e || window.event;// IE678
+                console.log(e);
+            }
+            // 属性- e.target 
+            father.addEventListener('click' , function(e) {
+                console.log(this); // 绑定事件元素
+                console.log(e.target); // 触发事件元素 冒泡
+            
+            })
+
+            var a = document.querySelector('a');
+            a.addEventListener('click' , fn)
+            function fn(e) {
+              e.preventDefault();
+            } 
+            // 事件委托
+            var ul = document.querySelector('ul');
+            ul.addEventListener('click' , fn)
+            function fn(e) {
+                alert('hhh')
+                e.stopPropagation();
+                e.target.style.backgroundColor = 'pink'
+            }
+
+            // 禁用右键和选中
+           var s = document.querySelector('s');
+           document.addEventListener('contextmenu' ,function(e){
+            e.preventDefault();
+           })
+           // 全部小写
+           document.addEventListener('selectstart' ,function(e){
+            e.preventDefault();
+           })
+
+            
+
+
+
+    </script>
+</body>
+</html>

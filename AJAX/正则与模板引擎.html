@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str ='hello'
+        var  pattern = /o/
+        // exec() 检索字符串中正则表达式的匹配 有返回该值 没有返回null
+        var  res = pattern.exec(str)
+        console.log(res);
+        // 分组 () 提取想要的内容
+        var str1 ='<span>dd{{name}}</span>'
+        var  pattern1 = /{{([A-Za-z]+)}}/
+        var  res1 = pattern1.exec(str1)
+        console.log(res1);
+        // (2) ["{{name}}", "name", index: 5, input: "<div>{{name}}</div>", groups: undefined]
+        // 循环来replace
+        var str2 = '<div>{{name}}今年{{age}}岁了</div>'
+        var pattern2 = /{{\s*([a-zA-Z]+)\s*}}/
+        var patternRes = null
+        while (patternRes =pattern2.exec(str2 )){
+            str2  = str2.replace(patternRes[0],patternRes[1])
+        }
+        console.log(str2);
+        // 替换真值
+        var data = {
+            name:'zs',
+            age:15
+        }
+        var str3 = '<div>{{name}}今年{{age}}岁了</div>'
+        var pattern3= /{{\s*([a-zA-Z]+)\s*}}/
+        var patternRes1 = null
+        while (patternRes1 =pattern3.exec(str3 )){
+            str3  = str3.replace(patternRes1[0],data[patternRes1[1]])
+        }
+        console.log(str3);
+    </script>
+</body>
+</html>

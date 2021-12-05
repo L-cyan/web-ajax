@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 浅拷贝 
+       var obj = {
+           id : 1,
+           name :'andy',
+           msg :{
+               age: 18
+           },
+           say:function(){
+               console.log('123');
+           }
+       } 
+       var o = {}
+    //    for (var k in obj) {
+    //        o[k] = obj[k]
+    //    }
+    //  ES6 浅拷贝
+    // Object.assign(o , obj)
+    //    console.log(o);
+    //    console.log(obj);
+    //    o.msg.age = 20
+    // 深拷贝
+    // function deepCopy(newObj ,oldObj){
+    //     for(var k in oldObj){
+    //         var  item = oldObj[k]
+    //         if (item instanceof Array) {
+    //             newObj[k] = []
+    //             deepCopy(newObj[k],item)
+    //         } else if (item instanceof Object) {
+    //             newObj[k] = {}
+    //             deepCopy(newObj[k],item)
+    //         } else {
+    //             newObj[k] = item
+    //         }
+    //     }
+    //     return  newObj 
+    // }
+    // deepCopy(o , obj)
+    // o.msg.age = 20
+    //    console.log(o);
+    //    console.log(obj);
+
+    //    var  arr = [1,2,3,4]
+    // // console.log.apply(console,arr);
+    // function fn(a,b,c,d) {
+    //     console.log(a,b,c,d);
+    // }
+    // fn.apply(this,arr);
+
+    // arr.forEach(function(item ,index){
+
+    // })
+    // function myEach (arr , fun) {
+    //     for (var i = 0 ; i < arr.length; i++){
+    //     fun(arr[i],i)
+    //     }
+    // }
+   
+    // myEach (arr , function(item ,index){
+    //     console.log(item , index );
+    // })  
+    
+    // function myFilter (arr , fun) {
+    //     var res = []
+    //     for (var i = 0 ; i < arr.length; i++){
+    //     if (fun(arr[i])) {
+    //         res.push(arr[i])
+    //     }
+    //     }
+    //     return res
+    // }
+    // var  res = myFilter(arr,function(item){
+    //     return item > 2
+    // })
+    // console.log(res);
+
+    // // 封装some方法 
+    // function mySome (arr , fun) {
+    //     var flag = true
+    //     for (var i = 0 ; i < arr.length; i++){
+    //     if (fun(arr[i])) {
+    //         // return 是直接终止函数 
+    //         return flag
+    //     }  
+    // }
+    // return false
+    // }
+    // var  res = mySome([0,1,2],function(item){
+    //     return item > 2
+    // })
+    // console.log(res);
+    // 老师封装some方法 
+    // function mySome (arr , fun) {
+    //    for (var item of arr) {
+    //        if (fun(item)){
+    //         return true
+    //        }
+    //    }
+    // return false
+    // }
+    // var  res = mySome([0,1,2,9],function(item){
+    //     return item > 2
+    // })
+    // console.log(res);
+
+    //    // 封装map方法 
+    //    function myMap (arr , fun) {
+    //     var res = []
+    //     for(var item of arr) {
+    //         res.push(fun(item))
+    //     }
+    //     return res
+    // }
+    // var  res = myMap([0,1,2,5],function(item){
+    //     return item *2 
+    // })
+    // console.log(res);
+    //    // 封装every方法 
+    //    function myEvery (arr , fun) {
+    //    for (var item of arr) {
+    //        if (!fun(item)){
+    //         return false
+    //        }
+    //    }
+    // return true
+    // }
+    // var  res = myEvery([6,5],function(item){
+    //     return item > 2
+    // })
+    // console.log(res);
+
+    </script>
+</body>
+</html>

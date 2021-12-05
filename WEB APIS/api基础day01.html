@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div id="hhh">ds fa </div>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <ul>
+        <li>以标签名获取1</li>
+        <li>以标签名获取2</li>
+        <li>以标签名获取3</li>
+        <li>以标签名获取4</li>
+    </ul>
+    <ol id="aa">
+        <li>以父元素来获取1</li>
+        <li>以元素来获取2</li>
+        <li>以元素来获取3</li>
+    </ol>
+    <button id="ldh">刘德华</button>
+    <button id="zxy">张学友</button>
+    <br>
+    <img src="./images/ldh.jpg" alt="" title = "刘德华">
+    <p>事件</p>
+
+    <img src="./images/s.gif" alt="" id="time1"> 
+    <div id="time2">上午好</div>
+
+    <button id ="btn1">搜索</button>
+    <input type="text" value="sdfassdf水电费 撒旦法">
+    <script>
+        var  info = document.getElementById('hhh')
+        console.log(info);
+        // 打印返回的元素对象 查看属性方法
+        console.dir(info)
+
+        var lists = document.getElementsByTagName('li');
+        console.log(lists);
+        // 返回值是伪数组形式的元素对象的集合(不论有几个或者没有-空)
+        // 遍历
+        for ( var i = 0; i < lists.length; i++) {
+            console.log(lists[i]);
+        }
+
+        // 父元素 获取指定的元素1
+        // var  ol = document.getElementsByTagName('ol') //返回伪数组集合
+        // console.log(ol[0].getElementsByTagName('li'));
+
+          // 父元素 获取指定的元素2
+          var  ol = document.getElementById('aa'); //返回元素对象
+          console.log(ol.getElementsByTagName('li'));
+
+          // h5 新增的 IE9以上
+          // 根据类名获取元素集合
+          var boxes = document.getElementsByClassName('box');
+          console.log(boxes);
+
+          // querySelector  和querySelectorAll 获取指定选择器的第一个元素对象和所有元素集合
+          var firstBox = document.querySelector('.box')
+          console.log(firstBox);
+
+          var ol1 = document.querySelector('#aa')
+          console.log(ol1);
+
+          var div1 = document.querySelector('div')
+          console.log(div1);
+
+          var boxAll = document.querySelectorAll('.box')
+          console.log(boxAll);
+
+          var divs = document.querySelectorAll('div')
+          console.log(divs);
+
+          // 获取html元素  和body元素对象
+        var  bodyEle = document.body;
+        console.log(bodyEle);
+
+        var htmlEle = document.documentElement;
+        console.log(htmlEle);
+        
+        // 事件执行三步走
+        // var btn = document.querySelector('button');
+        // btn.onclick = function() {
+        //     console.log('被选中了');
+        //     alert('可以的');
+        // }
+
+        // innerText改变元素内容
+        function getNow() {
+         var  date = new Date();
+         var year = date.getFullYear();
+         var month = date.getMonth() + 1; //从0开始-11
+         var dates = date.getDate();
+         var  day = date.getDay();
+         var arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六']
+         var h = date.getHours();
+         h = h > 10 ? h :'0' + h;
+         var m = date.getMinutes();
+         m = m > 10 ? m :'0' + m;
+         var s = date.getSeconds();
+         s = s > 10 ? s :'0' + s;
+         return  `今天是：${year}年${month}月${dates}日 ${arr[day]} ${h}:${m}:${s} `;  
+        }
+        // var btn = document.querySelector('button');
+        // var  p =  document.querySelector('p')
+
+        // btn.onclick = function() {
+        //     p.innerText = '2019-1-1';
+        // }
+
+         var  a = document.querySelector('div')
+         a.innerText = getNow();
+
+         var  ldh = document.getElementById('ldh');
+         var  zxy = document.getElementById('zxy');
+         var img = document.querySelector('img')
+
+         zxy.onclick = function() {
+            img.src = './images/zxy.jpg';
+            img.title = '张学友';
+         }
+         ldh.onclick = function() {
+            img.src = './images/ldh.jpg';
+            img.title = '刘德华';
+         }
+
+         // 不同时间显示不同内容
+         var  img1 = document.getElementById('time1');
+         var  info = document.getElementById('time2');
+         var date = new Date('2021-11-02 06:00:00')
+         var  h = date.getHours();
+         if (h < 9) {
+            img1.src = './images/z.gif';
+            info.innerHTML='早上好'
+         } else if (h < 12) {
+            img1.src = './images/s.gif';
+            info.innerHTML='上午好'
+         } else if (h <= 18) {
+            img1.src = './images/x.gif';
+            info.innerHTML='下午好'             
+         } else {
+            img1.src = './images/w.gif';
+            info.innerHTML='晚上好'
+            }
+
+        // 表单按钮禁用
+        var btn1 = document.getElementById('btn1') ;
+        var  input1 = document.getElementsByTagName('input');
+        btn1.onclick = function() {
+            input1[0].value = '点击了';
+            this.disabled = true;
+            }
+console.log(localStorage.getItem('pwd'));
+       
+
+    </script>
+</body>
+</html>

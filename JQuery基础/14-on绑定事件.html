@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+   <style>
+    .current {
+        color : blue
+    }
+   </style>
+</head>
+<body>   
+    <div>2 <span>sds </span><span>www</span></div>
+    <p>3<span>sds </span><span>www</span></p>
+    <p>6<span>sds </span><span>www</span></p>  
+    <input type="text">
+    <a href="https://www.baidu.com">阿迪斯</a>
+   <script>
+    $(function(){
+        // 绑定多个事件 对象形式
+        // $('p').on({
+        //     click: function(){
+        //         $(this).css('color','red')
+        //     },
+        //     mouseenter: function(){
+        //         $(this).css('backgroundColor','pink')
+        //     },
+        //     mouseleave: function(){
+        //         $(this).css('backgroundColor','green')
+        //     },
+        // })
+        // 相同程序 空格隔开
+        // $('p').on( ' mouseenter  mouseleave ',function(){
+        //         $(this).toggleClass('current')
+        //     },)
+        // 可以用作事件委托并且让动态创建的元素也能绑定事件
+        $('div').on('click','span',function(){
+            console.log( $(this));//指的是span
+            $(this).css('color','red')
+        })
+        // off绑定事件
+        // $('div').off()// 全部
+        // $('div').off('click') // 某一个
+        // $('div').off('click','span')// 接触事件委托
+        // one 只触发一次
+        $('div').one('click',function(){
+            alert('22')
+        })
+        // trigger自动触发
+        $('span').click()//第一种方法 有默认行为
+        $('input').on('focus',function(){
+            $(this).val('111')
+        })
+        // $('input').trigger('focus')//第2种方法 有默认行为
+       $('input').triggerHandler('focus')//第3种方法 无默认行为
+       // 事件对象
+       $('div').on('click',function(e){
+            alert('22')
+            // 阻止冒泡
+           e.stopPropagation()
+        })
+        $(document).on('click',function(){
+            alert('33')
+        })
+        $('a').on('click',function(e){
+
+            // 阻止默认程序 或者return false
+            e.preventDefault()
+           
+        })
+
+    })
+
+   </script>
+   
+</body>
+</html>

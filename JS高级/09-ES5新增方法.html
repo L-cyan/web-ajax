@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+  //遍历数组
+      var arr = [3,5,8,6]
+      var arr1 = ['red','green','blue','pink','purple']
+      arr.forEach(function(CV ,i,array){
+        console.log(`元素内容${CV}`);
+        console.log(`元素索引${i}`);
+        console.log(`元素本身${array}`);
+      })
+    // 过滤
+    var newArray = arr1.filter(function(value,i,array){
+        // return value>=5
+        // return value%2==0
+        if (value ==='blue') {
+          console.log('找到了');
+          return true // 没办法结束迭代
+        }
+        console.log(22);
+    })
+    console.log(newArray);
+    // some
+    var flag = arr.some(function(value,i,array){
+        return value>=15
+        // return value%2==0
+    })
+    console.log(flag);
+    // every
+    var flag1 = arr.every(function(value,i,array){
+        return value>=6
+        // return value%2==0
+    })
+    console.log(flag1);
+    // map
+    var newArr = arr.map(function(value,i,array){
+       
+        return value+1
+    })
+    console.log(newArr);
+  </script>  
+</body>
+</html>

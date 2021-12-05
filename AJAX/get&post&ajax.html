@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+</head>
+<body>
+    <button id="btnGET">发起不带参数的GET请求</button>
+    <button id="btnGETINFO">发起带参数的GET请求</button>
+    <form action="" method = "post">
+       名字 <input type="text" id="bookname">
+       作者 <input type="text" id="author">
+       出版社 <input type="text" id="publisher">
+       <button id="btnPOST">提交</button>
+    </form>
+   
+    <button id="btnGETA">A发起带参数的GET请求</button>
+    <button id="btnPOSTA">A提交</button>
+    
+    <script>
+      
+        $(function(){
+            //发起不带参数的GET请求
+            $('#btnGET').on('click',function(){
+                $.get('http://www.liulongbin.top:3006/api/getbooks',function(res){
+                    console.log(res);
+                })
+            })
+            // $.get()发起携带参数的请求
+            $('#btnGETINFO').on('click',function(){
+                // url地址要正确不能有空格
+                
+                $.get('http://www.liulongbin.top:3006/api/getbooks',{id:1},function(res){
+                    console.log(res);
+                }) 
+            })
+            //  $.post()提交数据
+            $('#btnPOST').on('click',function(){
+                // console.log($('#bookname').val());
+                $.post('http://www.liulongbin.top:3006/api/addbook',{bookname: $('#bookname').val(), author: $('#author').val(), publisher: $('#publisher').val()},function(res){
+                    console.log(res);
+                })
+            })
+            //  $.ajax()方法请求数据 里面是个配置对象
+            $('#btnGETA').on('click',function(){
+                $.ajax({
+                    type:'get',//尽量大写GET
+                    url:'http://www.liulongbin.top:3006/api/getbooks',
+                    // data:{id:1},
+                    success:function(res){
+                        console.log(res);
+                    }
+                })
+            })
+             //  $.ajax()方法添加数据 里面是个配置对象
+             $('#btnPOSTA').on('click',function(){
+                $.ajax({
+                    type:'POST',//尽量大写
+                    url:'http://www.liulongbin.top:3006/api/addbook',
+                    data:{bookname: '水浒传a', author: '施耐庵a', publisher: '天津图书a'},
+                    success:function(res){
+                        console.log(res);
+                    }
+                })
+            })
+        })
+        var obj = {
+            a:1,
+            b:2
+        }
+        console.log(obj); 打印时快照 展开引用地址 与node有不同结果
+        obj['c'] = 3
+        console.log(obj);
+
+    </script>
+</body>
+</html>

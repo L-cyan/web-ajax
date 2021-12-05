@@ -1,0 +1,19 @@
+html {
+  font-size: 50px;
+}
+body {
+  width: 100%;
+  min-width: 320px;
+}
+body .cart {
+  width: 100%;
+  height: 150rem;
+  line-height: 1rem;
+  background-color: blue;
+  font-size: 0.5rem;
+  color: #fff;
+  text-align: center;
+}
+body .cart:hover {
+  color: purple;
+}

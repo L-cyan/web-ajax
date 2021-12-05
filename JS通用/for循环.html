@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    //  for (var i = 1; i <= 100; i++) {
+    //      if  (i==1) {
+    //          console.log(`一岁 他出生了`);
+    //      } else if (i==100)  {
+    //          console.log(`100岁他去世了`);
+    //      } else {
+    //         console.log(`他${i}岁了`); 
+    //      }
+    //  }
+     // 1-100求和
+ var sum = null;
+ for ( var i = 1; i <= 100; i++) {
+     sum += i;
+ }
+ console.log(sum);
+ // 1-100 求平均值
+ var avr = sum / 100;
+ console.log(avr);
+ // 1-100 奇数 偶数和
+ var sumEven = 0;
+ var sumOdd = 0;
+ for ( var i = 1; i <= 100; i++) {
+     if (i % 2 == 0) {
+         sumEven += i;
+     } else {
+         sumOdd += i
+     }
+ }
+ console.log(`奇数和：${sumOdd},偶数和：${sumEven}`);
+// 1-100 被3整除和
+//   var result = 0 ;
+//   for ( var i = 1; i <=100; i++) {
+//       if (i % 3 == 0) {
+//             result += i;
+//          }
+//      }
+//   console.log(result);
+  // 成绩平均值
+// var  num1 = prompt('请输入班级人数');
+// var sum1 = 0;
+// for (var i = 1 ; i<=num1; i++) {
+//    var  score = parseFloat(prompt(`第${i}学生的成绩`)) ;
+// sum1 += score;
+// } 
+// var average = sum1 / num1;
+// alert (`总成绩：${sum1} ,平均成绩：${average}`)
+// 一行打印五颗星星
+// var str = '' ;
+// for ( var i =1 ;i <= 5; i++ ) {
+//     str += '❥'
+// }
+// console.log(str);
+
+// var num2 = prompt ('要打印几颗星星');
+// var str1 = '';
+// for ( var i =1 ;i <= num2; i++) {
+//     str1 += '❥'
+// }
+// console.log(str1);
+// 打印N行N列的星星
+// var str2 = '';
+// var rows = prompt('几行');
+// var cols = prompt('几列');
+// for ( var i = 1; i <= rows; i++) {
+//     for ( var j = 1;j <= cols;j++ ) {
+//         str2 += '❥';
+//         }
+//         str2 += '\n';
+// }
+// console.log(str2);
+
+// 打印N行N列的星星
+
+var rows = prompt('几行');
+var cols = prompt('几列');
+for ( var i = 1; i <= rows; i++) {
+    var str2 = '';
+    for ( var j = 1;j <= cols;j++ ) {
+        str2 += '❥';
+        }
+        console.log(str2);  
+}
+//打印倒三角 -张
+// for ( var i = 1;i <=5; i++ ) {
+//     var str3 = '';
+//     for ( var j = i ; j <= 5; j++) {
+//         str3 += '❥'
+//     }
+//     console.log(str3);
+// }
+var str7 = '';
+for ( var i = 1 ;i <= 5; i++) {
+
+}
+
+//打印倒三角 -pink
+var str4 = '';
+ for (var i = 1; i <= 5 ; i++){
+    for ( var j = i; j <= 5;j++) {
+        str4 += '❥';
+    }
+    str4 += '\n'
+ }
+console.log(str4);
+//打印正三角形
+var str5 = '';
+for (var i = 1; i <= 5; i++) {
+    for ( var j = 1;j <= i;j++) {
+str5 += '❥'
+    }
+    str5 += '\n'
+}
+console.log(str5);
+// 打印九九乘法表
+var str6 = ''  ;
+for ( var i = 1; i <= 9; i++)  {
+    for (var j = 1 ; j <= i; j++){
+     //  str6 += j + '*' + i + '=' + j*i +'\t'
+       str6 += `${j}*${i}=${i*j}\t`
+    }
+    str6 += '\n'
+}
+console.log(str6);
+//三角形的九九
+var str8 = ''  ;
+for ( var i = 1; i <= 9; i++)  {
+    for ( var j1 = i; j1<9;j1++) {
+        str8 += '\t';
+    }
+    for (var j = 1 ; j <= i; j++){  
+       str8 += `${j}*${i}=${i*j}\t`
+}
+str8 += '\n'
+    }  
+console.log(str8);
+// while 循环
+//  var i = 1; 
+//  while ( i <= 100) {
+//      console.log(`他${i}岁了`);
+//      i++;
+//  }
+
+//  // 求1-200的和
+//   var num3 = 0;
+//   var j = 1;
+//   while (j <=100 ) {
+//       num3 += j;
+//       j++;
+//   }
+//   console.log(num3);
+
+//   //
+//   var msg = prompt('你爱我吗');
+//   while ( msg != '我爱你')  {
+//       msg = prompt('你爱我吗')
+//   }
+//   alert('我也爱你');
+  // do while 循环
+// var i =1;
+//   do {
+//       console.log(`${i}岁了`);
+//       i++;
+//   } while (i<=100)
+
+//   // 求和
+//   var j = 1;
+//   var sum = 0;
+//   do {
+//       sum += j;
+//       j++;
+//   } while (j <= 100)
+//   console.log(sum);
+
+//   // 弹框
+
+//   do {
+//        var msg = prompt('你爱我吗');
+//   } while (msg !== '我爱你');
+//   alert('我也爱你');
+  //continue 
+   var sum5 = 0 ;
+ss:for ( var i = 0; i <=100 ; i++){
+       if (i % 7 == 0) {
+continue ss;
+       }
+
+       sum5 += i;
+   }
+   console.log(sum5);
+
+    </script>
+</body>
+
+
+</html>

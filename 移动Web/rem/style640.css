@@ -1,0 +1,12 @@
+div {
+    float: left;
+    width: 50%;
+height: 100px;
+
+}
+.num1 {
+    background-color: pink;
+}
+.num2 {
+    background-color: blue;
+}

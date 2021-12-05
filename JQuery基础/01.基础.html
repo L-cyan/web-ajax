@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+           transition: all 1s;
+        }
+        .current {
+            /* display: none */
+            transform:rotate(360deg);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="gp current">123
+        <a href="#">阿斯蒂芬</a>
+        <div class="father">23456
+            <a href="#">水电费</a>
+            <span id="son" >a 水电费</span>
+        </div>
+        
+    </div>
+   
+    <ul>
+        <li>我是ul的第1个小li</li>
+        <li>我是ul的第2个小li</li>
+        <li>我是ul的第3个小li</li>
+        <li>我是ul的第4个小li</li>
+    </ul>
+    <ol>
+        <li>我是ol第1个小li</li>
+        <li class="current">我是ol第2个小li</li>
+        <li>我是ol第3个小li </li>
+        <li>我是ol第4个小li</li>
+        <li>我是ol第5个小li</li>
+    </ol>
+    <button>按钮</button><button>按钮</button><button>按钮</button><button>按钮</button><button>按钮</button><button>按钮</button><button>按钮</button>
+    <script>
+        // 入口函数两种写法 相当于DOMContentLoad
+        // $(function(){
+        //     $('div').hide()
+        // })
+        // 
+         $(document).ready(function () {
+            // $('div').hide()
+            // JQuery 对象和DOM对象 不能混用方法等  可以转换
+            // var div = document.querySelector('div')
+            // $(div).hide();
+            // $('div')[0].style.display = 'none';
+            // $('div').get(0).style.display = 'none';
+
+            // 获取元素  基础和层级选择器
+          console.log($('div .father #son'));  
+          console.log($('ul>li'));
+
+                // 修改样式
+                // $('div .father #son').css('color','pink')
+                // $('ul>li').css('background-color','red') // 隐式迭代
+                // 筛选选择器
+                // $('ul>li:even').css('background-color','green')
+                // $('ol li:first').css('color','pink');
+                // $('ol li:last').css('color','purple');
+                // $('ol li:eq(3)').css('background-color','#000');
+               // $('#son').parent().css('background-color','pink')
+                // $('ul').children('li').css('color','purple');
+                // $('.gp').find('a').css('color','red');
+                // $('.gp').children('a').css('color','purple');
+                var index = 3;
+                $('ol .current').siblings('li').css('color','purple');
+                $('ol li').eq(2).css('color','red');// 推荐使用这个eq方法 选择器的话索引变量需要字符串拼接
+                $('ol li:eq('+index+')').css('background-color','#000');
+                console.log($('ol li:eq(1)').hasClass('current'));
+                console.log($('ol li:eq(2)').hasClass('current'));
+              //排他
+              $('button').click(function(){
+                  
+                //   $(this).siblings('button').css('background','')
+                //   $(this).css('background','red')
+                  // 链式编程
+                  $(this).css('background','red').siblings('button').css('background','')
+              }) 
+
+              // 样式操作  CSS
+              // 只写属性名为获取属性值
+              var color = $('div').css('background-color')
+              console.log(color);
+              // 设置为一组值  注意引号 值为数字可不加单位引号
+              $('div').css('font-size',19);
+              $('div').css('font-size','11px');
+              // 对象形式书写多个样式 注意对象内书写 属性可不加引号 复合属性去掉- 驼峰值不为数值必须引号
+              $('div').css({
+                  color:'purple',
+                  backgroundColor : 'red'
+              })
+
+              // 设置类样式方法
+              // 添加
+              // $('div').addClass('current')
+              // 删除
+             // $('div').removeClass('current')
+              // 切换
+              $('.gp').click(function(){
+                $(this).removeClass('current')
+              })
+
+         })
+    
+    
+    </script>
+</body>
+</html>

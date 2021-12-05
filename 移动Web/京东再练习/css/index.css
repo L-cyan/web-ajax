@@ -1,0 +1,142 @@
+header .app {
+  font-size: 14px;
+  color: #fff;
+}
+header .app .row {
+  height: 12vw;
+  line-height: 12vw;
+  text-align: center;
+}
+header .app .row div {
+  height: 12vw;
+  background-color: #333;
+}
+header .app .row div:nth-child(1) {
+  padding: 0;
+}
+header .app .row div:nth-child(1) img {
+  width: 2.66666667vw;
+  height: 2.66666667vw;
+}
+header .app .row div:nth-child(2) {
+  padding: 0;
+}
+header .app .row div:nth-child(2) img {
+  width: 8vw;
+  height: 8vw;
+}
+header .app .row div:nth-child(4) {
+  background-color: #f63515;
+}
+header .main-wrap {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  margin-top: 12vw;
+  padding: 0;
+  display: flex;
+  height: 11.73333333vw;
+  background-color: navy;
+}
+header .main-wrap .more {
+  width: 10.66666667vw;
+  height: 11.73333333vw;
+}
+header .main-wrap .more img {
+  width: 5.33333333vw;
+  margin: 3.73333333vw 0 0 4vw;
+}
+header .main-wrap .search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .main-wrap .search .sou {
+  display: flex;
+  align-items: center;
+  width: 85%;
+  height: 8vw;
+  border-radius: 4vw;
+  background-color: #fff;
+}
+header .main-wrap .search .sou img {
+  margin-left: 4vw;
+  width: 5.33333333vw;
+  height: 4vw;
+  vertical-align: middle;
+}
+header .main-wrap .search .sou i {
+  position: relative;
+  width: 4.8vw;
+  height: 4vw;
+  margin-left: 4.26666667vw;
+  background: url(../images/jd-sprites.png) no-repeat -22.13333333vw 0;
+  background-size: 53.33333333vw;
+}
+header .main-wrap .search .sou i::before {
+  position: absolute;
+  top: 0vw;
+  left: -2.13333333vw;
+  background-color: #ddd;
+  content: "";
+  width: 1px;
+  height: 4vw;
+}
+header .main-wrap .search .sou input {
+  flex: 1;
+  outline: none;
+  border: none;
+  height: 8vw;
+  border-radius: 0 4vw 4vw 0;
+}
+header .main-wrap .login {
+  width: 10.66666667vw;
+  height: 11.73333333vw;
+  line-height: 11.73333333vw;
+  font-size: 3.73333333vw;
+  color: #fff;
+}
+.banner {
+  margin-top: 11.73333333vw;
+}
+.banner img {
+  width: 100vw;
+}
+.event {
+  display: flex;
+}
+.event a {
+  flex: 1;
+}
+.event a img {
+  width: 100%;
+}
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+}
+.nav a {
+  flex: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #666;
+  font-size: 3.73333333vw;
+}
+.nav a img {
+  width: 10.66666667vw;
+  margin-top: 1.33333333vw;
+  margin-bottom: 1.33333333vw;
+}
+.activity .row div {
+  padding: 0;
+  background-color: pink;
+}
+.activity .row div:nth-child(2) {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+.activity .row div img {
+  width: 100%;
+}

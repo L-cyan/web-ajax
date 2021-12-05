@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     function Star(uname ,age){
+           this.uname = uname;
+           this.age = age;
+           this.sing = function(){
+               console.log('我会唱歌');
+           }   
+         console.log(this); 
+         console.log(`名字${uname}年龄${age}`);
+       }
+       var  that
+       Star.prototype.say= function(){
+               console.log('我会说话');
+               // this 指的是实例化对象 调用后that的赋值生效
+               that = this
+           }   
+           var lhd = new Star('刘德华',5)
+           lhd.say()
+           console.log( that === lhd); 
+
+        //    call 可以改变this指向 也可以调用函数 
+        var o = {
+            name:'andy'
+        }
+       // Star.call(o,'andy','16') // o
+        Star.call() // window 
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "id": "2854852",
+  "name": "no name",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4933375",
+      "name": "人物-人",
+      "font_class": "renwu-ren",
+      "unicode": "e749",
+      "unicode_decimal": 59209
+    },
+    {
+      "icon_id": "6444197",
+      "name": "招商小程序-看榜单1",
+      "font_class": "zhaoshangxiaochengxu-kanbangdan",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "12184876",
+      "name": "指南针",
+      "font_class": "zhinanzhen",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "7592579",
+      "name": "24gf-headphones",
+      "font_class": "24gf-headphones",
+      "unicode": "ea10",
+      "unicode_decimal": 59920
+    },
+    {
+      "icon_id": "9594791",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    }
+  ]
+}

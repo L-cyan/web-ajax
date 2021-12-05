@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            background-color: pink;
+            padding: 10px;
+            border: 5px solid red;
+            overflow: auto;
+        }
+        .son {
+            height: 50px;
+            width: 50px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+   <div>dsa 第三方水电费水电费是水电费sad山东父dsa 第三方水电费水电费是水电费sad山东父dsa 第三方水电费水电费是水电费sad山东父dsa 第三方水电费水电费是水电费sad山东父</div> 
+   <div class="father">
+       <div class="son"></div>
+   </div>
+   <script>
+       // scroll 
+       var div = document.querySelector('div')
+       console.log(div.scrollHeight);
+       console.log(div.scrollWidth);
+       console.log(div.clientWidth);
+       div.addEventListener('scroll',function(){
+           console.log(div.scrollTop);
+       })
+       var father = document.querySelector('.father');
+       var son = document.querySelector('.son');
+       father.addEventListener('mouseover' ,function(){
+           alert(11)
+       })
+
+
+
+   </script>
+</body>
+</html>

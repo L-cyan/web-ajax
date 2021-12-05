@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  font-family: Helvetica Neue, Tahoma, Arial, PingFangSC-Regular, Hiragino Sans GB, Microsoft Yahei, sans-serif;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+img {
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+ul {
+  list-style: none;
+}
+.ellipsis-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.pink {
+  color: #fb7299;
+}
+header {
+  position: fixed;
+  top: 0;
+  margin: 0 auto;
+  width: 100%;
+  min-width: 320px;
+  max-width: 640px;
+  padding: 0 3.2vw 0 4.8vw;
+}
+header .up {
+  display: flex;
+  justify-content: space-between;
+  height: 11.73333333vw;
+  align-items: center;
+}
+header .up i {
+  font-size: 7.5vw;
+  font-style: normal;
+}
+header .up .login {
+  display: flex;
+}
+header .up .login i {
+  color: #ccc;
+  font-size: 6.4vw;
+}
+header .up .login .lg {
+  width: 6.4vw;
+  height: 6.4vw;
+  margin: 0 6.4vw;
+}
+header .up .login .lg img {
+  width: 100%;
+  height: 100%;
+}
+header .up .login .download {
+  width: 19.2vw;
+  height: 6.4vw;
+}
+header .up .login .download img {
+  width: 100%;
+  height: 100%;
+}
+header .down {
+  display: flex;
+  justify-content: space-between;
+  height: 10.13333333vw;
+  line-height: 10.13333333vw;
+  text-align: center;
+  padding-bottom: 1px;
+}
+header .down .tab-hd {
+  display: flex;
+}
+header .down .tab-hd li {
+  margin-right: 8.53333333vw;
+  color: #333;
+  font-size: 3.8vw;
+}
+header .down .tab-hd li a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+header .down .tab-hd li .current {
+  border-bottom: 1px solid #fb7299;
+}
+header .down i {
+  font-size: 5.8vw;
+  color: #ccc;
+}
+.line {
+  background-color: #ccc;
+  height: 1px;
+  margin-top: 22.13333333vw;
+}
+.tab-list {
+  padding: 0 1.33333333vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+.tab-list .tab-content {
+  width: 50%;
+  padding: 1.33333333vw;
+}
+.tab-list .tab-content .main {
+  position: relative;
+}
+.tab-list .tab-content .main img {
+  width: 100%;
+}
+.tab-list .tab-content .main .info {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.33333333vw;
+  color: #fff;
+  font-size: 3.2vw;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+}
+.tab-list .tab-content .main .info i {
+  vertical-align: middle;
+  font-size: 4.27vw;
+}
+.tab-list .tab-content p {
+  font-size: 3.2vw;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  margin-top: 1.33333333vw;
+}

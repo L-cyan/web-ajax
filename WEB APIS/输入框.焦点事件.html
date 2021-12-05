@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            height: 30px;
+            width: 200px;
+            color: #999;
+            outline :none;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" value="手机">
+    <script>
+        // 表单2个新事件 获取（判断是否是默认值 是则清空表单内容） 
+        // 失去焦点（判断内容是否为空 空则恢复默认值）
+        // 获取元素
+        var text = document.querySelector('input')
+        // 注册事件 获取焦点 清空默认值 改变颜色
+        text.onfocus = function() {
+            if  (this.value === '手机') {
+                this.value= '';
+                this.style.color = '#333';
+                }
+        }
+         // 注册事件 失去焦点 恢复默认值 改变颜色
+        text.onblur = function() {
+            // trim() 方法去掉首末的空格
+            if  (this.value.trim() === '') {
+                this.value= '手机';
+                this.style.color = '#999';
+                }
+        }
+    </script>
+    
+</body>
+</html>

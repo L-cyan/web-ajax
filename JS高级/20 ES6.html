@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        // 使用let关键字声明的变量才具有块级作用域，使用var声明的变量不具备块级作用域特性
+        // 使用let关键字避免循环遍量变成全局变量
+        // for (var i = 0; i <= 2; i++) {}
+        // console.log(i); // 3
+
+        // for (let j = 0; j < 2; j++) {}
+        // console.log(j); //is not defined
+
+        // 不存在变量提升
+        // console.log(b) // undefined
+        // var b = 20
+
+        // console.log(a); //  Cannot access 'a' before initialization
+        // let a = 20;
+
+        // 暂时性死区特性 TDZ
+         var tmp = 10
+         if(true){
+             console.log(tmp); //Cannot access 'tmp' before initialization
+            //  let tmp = 3 // 块级作用域中有let声明的变量就绑定这个块域 未声明前使用报错
+         }
+        //  同一个作用域不可使用 let 重复声明同一个变量 因此不能在函数内部重新声明参数。
+        // function func(arg) {
+        //      let arg;
+        //     }
+        //     func() // 报错
+
+        //     function func(arg) {
+        //      {
+        //        let arg;
+        //      }
+        //     }
+        //     func() // 不报错
+
+        // 面试题 
+        // for 循环 就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。
+        let arr = [];
+        for (let i = 0; i < 2; i++) {
+            arr[i] = function () {
+         console.log(i); 
+            }
+        }
+        //  如果是var申明的话 都是2 因为i访问的是全局只有一个i for之后为2 
+        // let申明 i访问的是块级作用域的i 每一轮循环的变量i都是重新声明的 js引擎记住上一轮循环的值 
+        arr[0](); // 0  
+        arr[1](); // 1
+
+
+        // constant 声明常量  块级作用域
+        // if (true) { 
+        //     const a = 10;
+        //  }
+        //     console.log(a) // a is not defined
+ 
+        // if (true) {
+        //     const a = 10;
+        //     if (true) {
+        //     const a = 20;
+        //     console.log(a); // 20
+        //     }
+        //     console.log(a); //10
+        // }
+        //     console.log(a);// a is not defined
+
+            // 声明常量时必须赋值
+            // const PI; // Missing initializer in const declaration
+
+            // 常量赋值后，值不能修改
+            // 基本数据类型，不能更改值，如果是复杂数据类型，不能更改地址值
+            // const PI = 3.14;
+            // PI = 100; // Assignment to constant variable.
+
+            // const ary = [100, 200];
+            // ary[0] = 'a';
+            // ary[1] = 'b';
+            // console.log(ary); // ['a', 'b']; 
+            // ary = ['a', 'b']; // Assignment to constant variable. 
+            
+            // 解构赋值  可以有默认值 d=1 没有解构成功为默认值
+            // 数组按照位置来解构 不成功，变量的值为undefined
+            // let [a, b, c,d] = [1, 2, 3];
+            // console.log(a)//1
+            // console.log(b)//2
+            // console.log(c)//3
+            // console.log(d)//undefined
+            // // 对象解构 按照属性名解构 变量名应该为属性名 属性名冲突 可以 ：别名  对象的属性值赋值给别名
+            // let person = { name: 'zhangsan', age: 20 }; 
+            // // let { name,age } = person;
+            // // console.log(name); // 'zhangsan' 
+            // // console.log(age); // 20
+
+            // let name = 'rayn'
+            // let {name: myName, age: myAge} = person; // myName myAge 属于别名
+            // console.log(myName); // 'zhangsan' 
+            // console.log(myAge); // 20
+
+            // 箭头函数 形参只有一个可以省略（） 函数体只有一句也是返回结果可以省略{}
+            const fn = v => v;
+            function fn (v) {
+               return v;
+             } 
+             箭头函数不绑定this关键字，箭头函数中的this，指向的是函数定义位置的上下文this
+            const obj = { name: '张三'} 
+            function fn () { 
+                console.log(this);//this 指向 是obj对象
+                    return () => { 
+                     console.log(this);//this 指向 的是箭头函数定义的位置，那么这个箭头函数定义在fn里面，而这个fn指向是的obj对象，所以这个this也指向是obj对象
+                    } 
+                } 
+            const resFn = fn.call(obj); 
+            resFn();
+
+            let age = 100;
+            let obj = {
+            	age: 20,
+            	say: () => {
+            		alert(this.age)
+            	}
+            }
+            obj.say()
+
+            //  剩余参数 ...args   args为变量名 是个数组接受剩余参数
+            const sum = (...args) =>{
+                let sum = 0 
+                args.forEach(item => sum += item)
+                return sum
+            }
+            console.log(sum(1,2,3));   
+            console.log(sum(1,2,3,10)); 
+            
+
+            // 剩余参数与解构配合使用 剩余参数写在后面
+            let students = ['blue','pink','green']
+            let[ ...s2] = students
+            // console.log(s1);
+            console.log(s2);
+
+            // 扩展运算符 将数组和对象转为逗号分隔的参数序列  去掉[] {}打印时 ，视为参数分隔符不显示
+            // 数组合并
+            let arry1 = [1,2,3]
+            let arry2 = [1,2,3]
+            let arry3 = [...arry1 , ...arry2]
+            console.log(arry3);
+            // push 可以加多个，分隔的参数 返回值是新数组长度
+            arry1.push(...arry2);
+            console.log(arry1);
+         
+            // 将伪数组变成数组
+            let divs = document.querySelectorAll('div')
+            divs = [...divs]
+            console.log(divs);
+
+            // 数组扩展方法  Array.from 将伪数组转为数组 并且可以跟参数 类似于map 对元素进行处理
+            let arrayLike = {
+            '0': 'a',
+            '1': 'b',
+            '2': 'c',
+            length: 3
+            };  
+            console.log(arrayLike);     
+            let ary2 = Array.from(arrayLike)  
+            console.log(ary2);
+            let ary3 = Array.from(arrayLike, item => item+'a')  
+            console.log(ary3);
+            // find() 查找数组中第一个复合条件的成员 没有返回undefined
+            let ary = [{
+                 id: 1,
+                 name: '张三'
+             }, { 
+                 id: 2,
+                 name: '李四'
+             }]; 
+            //  ary.find((item,index)=>item.id == 2)
+             let  target = ary.find(item=>item.id == 2)
+             console.log(target);
+            //  findIndex()查找数组中第一个符合条件成员所在索引 没有返回-1
+            let arr3 = [1,3,5,7,8]
+            let index = arr3.findIndex( item => item>33)
+            console.log(index);
+            // includes() 判断数组中是否包含给定的参数值 返回布尔值
+            console.log(arr3.includes(7)); //T
+            console.log(arr3.includes(9)); //F 
+
+            // String扩展方法
+            // 模板字符串 解析变量 换行结构清晰 调用函数
+            // startsWith() endsWith() 参数字符串是否在原字符串的头部 / 尾部，返回布尔值
+            let str = 'Hello world!';
+            let r1 = str.startsWith('He')
+            console.log(r1);
+            let r2 =str.endsWith('!')
+            console.log(r2);
+
+            //repeat() 原字符串重复n次，返回一个新字符串
+            console.log('x'.repeat(3) );
+
+            // Set数据结构 类似于数组，但是成员的值都是唯一的，没有重复的值 适用于历史搜索关键词等
+
+            // 数组去重  .size 长度
+            const s = new Set([11,2,3,4,2,3,4]);
+            console.log(s.size); // 4
+            console.log(s);
+            const ar = [...s]
+            console.log(ar);
+
+            // 方法
+            s.add(5).add(2)  // 向set结构添加值 可以链式
+            console.log(s.size);
+            console.log(s.delete(3)); //  删除结构的值 返回布尔值
+           console.log( s.has(1)); // 结构中是否有某值 返回布尔值
+            s.clear() //清除所有值
+            console.log(s);
+
+    </script> 
+</body>
+</html>

@@ -1,0 +1,210 @@
+body {
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    background-color: pink;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #fff;
+    font-family: -apple-system, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+ol,div,ul {
+    margin: 0;padding: 0;
+}
+img {
+    vertical-align: middle;
+}
+a {
+    text-decoration: none;
+    color: #666;
+}
+ul, ol {
+    list-style: none;
+}
+.app {
+    height:45px ;
+    background-color: #333;
+}
+
+
+.app ul li {
+    float: left;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+}
+.app ul li:nth-child(1) {
+    width: 8%;
+}
+.app ul li:nth-child(1) img {
+    width: 10px;
+    /* vertical-align: middle; */
+}
+.app ul li:nth-child(2) {
+    width: 10%;
+}
+.app ul li:nth-child(2)  img {
+    width: 30px;
+    /* vertical-align: middle; */
+}
+.app ul li:nth-child(3) {
+    width: 57%;
+}
+.app ul li:nth-child(4) {
+    width: 25%;
+    background-color: #F63515;
+}
+.search-wrap {
+    position: fixed;
+    /* top: 0;
+    left: 0; */
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    height: 44px;
+    line-height: 44px;
+    z-index: 10;
+    overflow: hidden;
+}
+.search-btn,.searcn-login {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 44px;
+    /* background-color: blue; */
+}
+.search-btn {  
+    background: url(../images/s-btn.png) no-repeat 13px 12px /25px 20px;
+}
+.jd-icon {
+    float: left;
+    position: relative;
+    width: 50px;
+    height: 30px;
+     background: url(../images/jd.png) no-repeat 15px 5px /27px 19px ;
+}
+.jd-icon::after {
+    position: absolute;
+top: 5px;
+left: 49px;
+background-color: #ccc;
+    content: '';
+    width: 1px;
+    height: 19px;
+
+}
+.sou { 
+     position: absolute;
+     top: 8px;
+     left: 60px;
+     width: 17px;
+     height: 15px;
+    background: url(../images/jd-sprites.png) -83px  0  ;
+    background-size: 200px 200px;
+
+
+}
+input {
+    position: absolute;
+    top: 0;
+    left: 77px;
+    outline: none;
+    height: 30px;
+   
+    border:none;
+
+    
+}
+.searcn-login {
+    text-align: center;
+    color: #fff;
+    left: 100%;
+    transform: translateX(-100%);
+}
+.search {
+    overflow: hidden;
+    position: relative;
+    margin: 7px 50px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 22px;
+}
+
+
+ .slider .img {
+    position: relative;
+    height: 184px;
+    margin-top:44px ;
+    background: url(../upload/banner.dpg) no-repeat ;
+    background-size: 100%;
+ }
+/* .slider {
+position: relative;
+} */
+/* .slider img {
+    width: 100%;
+} */
+.focus  {
+    position: absolute;
+    /* height: 8px;
+    width: 50px; */
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.focus ol li {  
+    float: left;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: #fff;
+    list-style: none;
+    margin: 0 2px;
+ 
+}
+.brand {
+    width: 100%;
+    border-radius: 10px 10px 0 0 ;
+    overflow: hidden;
+}
+.brand1,.brand2,.brand3 {
+    float: left;
+    width: 33.333%;
+}
+.brand img {
+    width: 100%;
+}
+
+.nav ul li {
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding-top: 7px;
+   
+    
+}
+.nav ul li img {
+    width: 40px;
+    
+}
+.news {
+overflow: hidden;
+width: 100%;
+}
+.news ul li {
+    float: left;
+    box-sizing: border-box;
+}
+.news ul li  img {
+    width: 100%;
+}
+.news ul li:nth-child(1) {
+    width: 50%;
+}
+.news ul li:nth-child(n+2) {
+    width: 25%;
+    border-left: 1px solid #ccc;
+}

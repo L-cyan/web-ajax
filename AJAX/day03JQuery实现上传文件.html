@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+</head>
+<body>
+    <input type="file" id="file1"/>
+    <button id="upload">上传文件</button>
+    <img src="./lib/loading.gif" alt="" id="load" style="display: none;">
+    <script>
+        $(function(){
+            // 1.判断是否有文件
+            $('#upload').on('click',function(){
+            //    将 jQuery 对象转化为 DOM 对象，并获取选中的文件列表
+                var files = $('#file1')[0].files
+                if( files.length <=0){
+                     return alert('请上传文件')
+                } 
+            // 2.向FormData追加文件
+            var fd = new FormData()
+            fd.append('avatar',files[0])
+            // 3. 发起文件请求 不能用$.post 因为需要设置两个属性
+            $.ajax({
+                method:'POST',
+                url:'http://www.liulongbin.top:3006/api/upload/avatar',
+                // 不修改 Content-Type 属性，使用 FormData 默认的 Content-Type 值
+                contentType:false,
+                // 不对 FormData 中的数据进行 url 编码，而是将 FormData 数据原样发送到服务器
+                processData:false,
+                data:fd,
+                success:function(res){
+                    console.log(res);
+                }
+            })
+        })
+         // 4.实现loading效果 ajaxStart 的 callback 中显示 loading 自 jQuery 版本 1.8 起，该方法只能被附加到文档
+            // 监听当前文档内所有的 Ajax 请求
+            $(document).ajaxStart(function(){
+                $('#load').show()
+            })
+            $(document).ajaxStop(function(){
+                $('#load').hide()
+            })
+            })   
+    </script>
+</body>
+</html>

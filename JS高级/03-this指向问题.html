@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button>点击</button>
+    <script>
+        var that;
+        // 类要写在实例化对象之前 因为没有变量提升          
+          class Father {
+            constructor( x,y){
+                that = this,
+                this.x = x;
+                this.y = y ;
+                this.btn = document.querySelector('button')// constructor中this指的是实例对象
+                this.btn.onclick = this.say// 不加（）以免直接调用 say前this指的btn  结果undefined
+                // 想要点击打印出实例对象的名字 可以借助一个全局变量  维护this指向
+            }
+           
+            say (){                                              
+                console.log(that.x);
+            }
+        }
+        var father = new Father('里路',18)
+       
+    </script>
+</body>
+</html>

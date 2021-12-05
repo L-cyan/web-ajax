@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position:absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        123
+    </div>
+<script>
+    // touch 事件
+    var  div = document.querySelector('div')
+    div.addEventListener('touchstart',function(e){
+       // console.log('摸了');
+    //    console.log(e);
+    //    console.log(e.targetTouches[0]);
+    })
+    div.addEventListener('touchmove',function(e){
+         //console.log(e);
+         // console.log('滑动');
+        
+    })
+    div.addEventListener('touchend',function(e){
+        // console.log('走了');
+        // console.log(e);
+    })
+
+    // 触摸移动
+    // 定义手指初始的值以及目标元素初始的值
+    var  startX = 0;
+    var  startY = 0;
+    var  x = 0;
+    var  y = 0;
+    // 1. 触摸时获取各个值
+    div.addEventListener('touchstart',function(e){
+        startX = e.targetTouches[0].pageX;
+        startY = e.targetTouches[0].pageY;
+        x=div.offsetLeft;   
+        y=div.offsetTop;    
+        })
+    // 2.移动时改变距离
+    div.addEventListener('touchmove',function(e){
+        // 获取触摸移动的距离
+        var moveX = e.targetTouches[0].pageX - startX;
+        var moveY = e.targetTouches[0].pageY - startY;
+        // 计算盒子移动的
+        div.style.left = x + moveX + 'px';
+        div.style.top = y + moveY + 'px';
+        // 阻止滑动时屏幕默认滚动
+        e.preventDefault();
+    })
+</script>
+</body>
+</html>

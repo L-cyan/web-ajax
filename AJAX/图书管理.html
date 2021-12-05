@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- /自闭和 -->
+    <link rel="stylesheet" href="./lib/bootstrap.css"/> 
+    <script src="./lib/jquery.js"></script>
+</head>
+<body style="padding:15px">
+    <!-- panel面板 bs3-panel:primary -->  
+    <div class="panel panel-primary">
+          <div class="panel-heading">
+                <h3 class="panel-title">添加新图书</h3>
+          </div>
+          <!-- 一行显示 添加类名 form-inline -->
+          <div class="panel-body form-inline">
+                <!-- 在body内创建3个输入框 bs3-input-group:addon:text -->            
+                <div class="input-group">
+                    <div class="input-group-addon">书名</div>
+                    <input type="text" class="form-control" id="bookname" placeholder="请输入书名">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon">作者</div>
+                    <input type="text" class="form-control" id="author" placeholder="请输入作者">
+                </div>            
+                <div class="input-group">
+                    <div class="input-group-addon">出版社</div>
+                    <input type="text" class="form-control" id="publisher" placeholder="请输入出版社">
+                </div>
+                <!-- bs3-button:primary -->
+                <button type="button" class="btn btn-primary"id="btnAdd">添加</button>                              
+          </div>
+    </div>
+    <!-- 图书列表  bs3-table:bordered-->
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>删除</th>
+            </tr>
+        </thead>
+        <tbody id="td">
+            
+        </tbody>
+    </table>
+   
+    <script>
+        $(function(){
+            function getBooklist(){
+                $.get('http://www.liulongbin.top:3006/api/getbooks',function(res){
+                    // console.log(res);
+                    // 判断是否获取成功 失败的话返回 并提示
+                    if (res.status!==200) return alert('请求数据失败')
+                    var row = []
+                    // 遍历结果 res.data 不要忘了写。 将每一个拼接好格式后追加给数组 
+                    // 删除按钮 死链接防止跳转 并且加入类名和自定义属性 为后续功能铺垫
+                    $.each(res.data,function(i, item){
+                        row.push(`<tr><td>${item.id}</td><td>${item.bookname}</td><td>${item.author}</td><td>${item.publisher}</td><td><a href="javascript:;" class="del" data-id="${item.id}">删除</a></td></tr>`)
+                    })
+                    // 渲染数据 先清空 然后追加字符串
+                    $('#td').empty().append(row.join(''))
+                })
+            }
+            getBooklist() 
+            // 删除功能 动态生成的按钮要用事件委托 代理
+            $('#td').on('click','.del',function(){
+                // 点击删除按钮获取id
+                var id = $(this).attr('data-id')
+                console.log(id);
+                // 删除数据接口 传入id
+                $.get('http://www.liulongbin.top:3006/api/delbook',{id:id},function(res){
+                    if(res.status !== 200) return alert('删除失败')
+                    // 局部刷新
+                    getBooklist() 
+                })      
+            })
+            // 添加功能
+            $('#btnAdd').on('click',function(){
+            //  这些变量写在事件之外无法生效？？ 点击提交
+               var bookname = $('#bookname').val().trim() 
+               var author = $('#author').val().trim() 
+               var publisher = $('#publisher').val().trim()
+               if(bookname.length == 0 || author.length <= 0||publisher.length == 0) {
+                   return alert('请输入完整信息')
+               }
+            // 接口提交数据 写在点击事件函数内部
+            $.post('http://www.liulongbin.top:3006/api/addbook',{bookname:bookname,author:author,publisher:publisher},function(res){
+                if(res.status !== 201) return alert('添加图书失败')
+                // 成功的话刷新 并清空填入的数据
+                getBooklist() 
+                $('#bookname').val('')
+                $('#author').val('')
+                $('#publisher').val('')
+
+            })
+            })
+     
+
+        })
+    </script>
+    
+</body>
+</html>

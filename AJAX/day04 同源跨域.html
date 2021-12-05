@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+</head>
+<body>
+    <script>
+        // 同源政策
+        $.ajax({
+            method:'get',
+            url:'http://www.liulongbin.top:3006/api/jsonp',
+            data:{
+                name:'zs',
+                age:20
+            },
+            success:function(res){console.log(res);}
+        })      
+    </script>
+    <script>
+        // JSONP原理
+        // 函数的调用和定义是可以抽离
+    function abc(res){
+        console.log(res);
+    }
+    </script>
+<!--   
+    <script src="./day04JSONP.js?callback=abc">
+        // 调用可以写在单独的脚本  通过src引入 可以在另一个服务器上 但是调用函数名要查询字符串形式告诉是哪一个函数也可以加入参数
+        // success({ name:'zs',
+        //         age:20})
+    </script> -->
+    <script src="http://www.liulongbin.top:3006/api/jsonp?callback=abc&name=dd&age=20"></script>
+    <script>
+        // 用ajax发送JSONP请求 不能使用$.get发起 必须指定dataType 会自动携带一个 callback=jQueryxxx 的参数，
+        $.ajax({
+            dataType:'JSONP',
+            url:'http://www.liulongbin.top:3006/api/jsonp?name=ss&age=30',
+            // jsonp:，
+            // jsonpCallback:,
+            // 都不怎么改
+            success:function(res){
+                console.log(res);
+            }
+        })
+    </script>
+</body>
+</html>

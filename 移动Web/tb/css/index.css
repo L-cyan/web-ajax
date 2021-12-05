@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    background-color:#fff;
+}
+body {
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: #f4f4f4;;
+}
+@media screen and (min-width:640px) {
+    html {
+        font-size: 42.6px !important;
+    }
+}
+header {
+    position: fixed;
+    z-index: 3;
+    /* 固定脱标 要宽度和考虑定位 最小最大 */
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 320px;
+    max-width: 640px;
+    height:.986667rem ;
+    background-color: rgb(255, 133, 42);
+    padding: .16rem .24rem;
+ 
+}
+.logo {
+   
+    margin-right: .24rem;
+    width: .72rem;
+    height: .533333rem;
+    vertical-align: middle;
+}
+
+header .search {
+    flex: 1;
+    background-color: rgb(255,78,34);
+    height: .666667rem;
+    line-height: .666667rem;
+    border-radius: .133333rem;
+    font-size: .346667rem;
+    text-align: center;
+    color: rgb(240, 224, 220);
+}
+header .search i{
+   font-size: .4rem;
+    vertical-align: bottom;
+}
+.banner {
+   margin-top: .986667rem ;
+}
+.banner img {
+    width: 100%;
+}
+.nav {
+    /* 相对于自身 定位 原先位置占着 */
+    position: relative;
+   top: -12px;
+   z-index: 2;
+   width: 100%;
+
+}
+.nav .bg {  
+    display: block;   
+    height:10px;
+    width: 100%;
+  
+
+} 
+
+.nav .main-nav{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.items {
+    flex: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 1.786667rem;
+    align-items: center;
+    font-size: 11px;
+    color: rgb(102, 102, 102);
+    background-color: #fff;
+}
+.items img {
+    width: 1.626667rem;
+    height:1.28rem ;
+}
+.content {
+    margin:  0 10px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.content .rcm {
+    display: flex;
+    /* height: 200px; */
+  
+}
+.content .left,.content .right {  
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+.content .rcm .right {
+    border-right: none}
+  
+    .common-hd {
+        height: 20px;
+        margin: 6px 0;
+    }
+    .common-hd img {
+        height: 100%;
+    
+    }
+
+.common-bd {
+   
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+
+}
+.common-bd>div{
+    background-color: lightpink;
+    border-radius: 5px;
+    width: 45%;
+    height: 88px;
+    text-align: center;
+
+}
+.common-bd>div p {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgb(254 , 74, 75);
+    margin-bottom: 4px;
+}
+.common-bd>div img{
+    width: 62px;
+    height: 62px;
+
+}
+
+.content .hot {
+    width: 100%;
+    height: 30px;
+}
+.s2 .common-bd div{
+    background-color: #fff !important;
+  
+}.s2 .common-bd p {
+    color: yellow;
+}
+
+.s2 .common-bd .all img {
+   height: 100%;
+   width: 100%;
+}
+.hot {
+    display: flex;
+    align-items: center;
+    height: 40px;
+font-size: 13px;
+margin: 0 24px 0 12px;
+}
+.hot  p {
+    font-size: 18px;
+  
+}
+.hot  div {
+
+    padding: 0 6px;
+    height: 26px;
+    line-height: 26px;
+    color: orange;
+    background-color: #feefec;
+    margin: 0 8px;
+}
+.hot  span {
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    width:  174px;
+
+}
+.like {
+    height: 19px;
+    width: 161px;
+    margin: 12px  auto;
+}
+.like  img {
+    width: 100%;
+    height: 100%;
+}
+.goods {
+   
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+    justify-content: space-between;
+   
+ 
+}
+.goods-list {
+    width: 49%;
+    
+    /*  让图片圆角 */
+   overflow: hidden;
+    border-radius: 10px;
+    background-color: #fff;
+    margin-bottom: 15px;
+}
+.goods-list img {
+    width: 100%;
+}
+.goods-list p {
+    margin: 9px;
+    height: 37px;
+    overflow: hidden;
+    font-size: 13px;
+
+}
+.goods-list .price {
+    padding-left: 9px;
+    margin-top: -9px;
+    height:30px ;
+    line-height: 30px;
+    font-size: 11px;
+    color: #999;
+} 
+.goods-list .price .p {
+    font-size: 16px;
+    color: #ff5500;
+}
+.goods-list .price i {
+    font-style: normal;
+    color: #ff5500;
+}
