@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../Day02/jquery-1.11.1.js"></script>
+    <script src="./jquery.color.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 100px;
+            background-color: red;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <button>改变背景色</button>
+    <div></div>
+    <script>
+        $(function(){
+            $('button').on('click',function(){
+            $('div').animate({
+                backgroundColor:'green',
+                width:300
+            }) 
+            })
+        })
+    </script>
+
+</body>
+</html>

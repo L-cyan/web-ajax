@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+        }
+        .pink {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button>切换</button>
+    <div>123</div>
+    <script>
+        $(function(){
+            // 1 css
+            $('button').click(function(){
+                console.log($('div').css('backgroundColor') );
+                if ($('div').css('background-color') == 'rgb(173, 216, 230)'){
+                    $('div').css('backgroundColor','pink')
+                } else {
+                    $('div').css('backgroundColor','lightblue')
+                }
+              
+            })
+            // 2 
+            // $('button').click(function(){
+            //     $('div').toggleClass('pink')
+            // })
+        })
+    </script>
+</body>
+</html>

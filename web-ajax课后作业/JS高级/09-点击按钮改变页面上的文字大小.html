@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn1">按钮20</button>
+    <button id="btn2">按钮40</button>
+    <button id="btn3">按钮60</button>
+    <p>闭包把我搞的</p>
+    <script>
+        
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+        var btn3 = document.getElementById('btn3');
+        var p = document.querySelector('p')
+        function setSize(a){
+            var a = a ;   
+            // 写return能行      
+            return function (){
+             p.style.fontSize = `${a}px`
+            }
+           
+        }
+        btn1.onclick = setSize(20)
+        btn2.onclick = setSize(40)
+        btn3.onclick = setSize(60)
+    </script>
+</body>
+
+</html>

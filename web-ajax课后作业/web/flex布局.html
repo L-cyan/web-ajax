@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .num1 {
+        display: flex;
+        width: 300px;
+        height: 30px;
+    }
+
+    .num1 div {
+        width: 70px;
+        height: 30px;
+        line-height: 30px;
+        margin: 0 2px;
+        text-align: center;
+        color: #ffffff;
+        background-color: pink;
+    }
+
+    .num1 div:nth-child(2) {
+        background-color: blue;
+        flex: 1;
+    }
+
+    .num2 {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-around;
+        width: 780px;
+        height: 600px;
+        background-color: #ccc;
+    }
+
+    .num2 div {
+        margin-right: 5px;
+        width: 250px;
+        height: 250px;
+        background-color: #888;
+    }
+</style>
+
+<body>
+    <div class="num1">
+        <div>左侧</div>
+        <div>中间</div>
+        <div>右侧</div>
+    </div>
+    <div class="num2">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*      // 作业1
+               var username = prompt('请输入你的姓名');
+               var age = prompt('请输入你的年龄');
+               var gender = prompt('请输入你的性别');
+               console.log(`用户的姓名:${username}`, `\n用户的年龄:${age}`, `\n用户的性别:${gender}`); */
+        /*      //作业2
+             var age1 =parseInt(prompt('你现在多少岁了'));
+             var age2 = age1 + 5;
+             console.log(`据我估计，五年后，你可能${age2}岁了`);
+     
+             alert(`据我估计，五年后，你可能${age2}岁了`)  */
+             //年龄并判断
+             var age = Number(prompt('年龄') );
+                console.log(isNaN(age));
+
+                if (isNaN(age)|| age <=0 || age >=120) {
+                    alert('请输入正确数字')
+                } else {
+                    alert(`你${age}岁了`)
+                }
+
+                //老师的方法
+            //      var age1 = parseFloat(prompt('年龄') );
+            //      var newAge = age1 +5;
+
+            //  //var result = alert(`五年后你${newAge}岁`)
+
+            //     if (isNaN(newAge)) {
+            //         alert('输入正确数字')
+            //     } else {
+            //         alert(`五年后你${newAge}岁`)
+            //     }
+
+
+            /*      //判断时间阶段
+                var time = parseInt(prompt('几点弹出问候信息'));
+             // time1 = Number(time);
+             if (0 <= time && time <= 5) {
+                 alert('休息时间请勿打扰')
+             } else if (6 <= time && time <= 12) {
+     
+                 alert('中午好')
+             } else if (13 <= time && time <= 18) {
+                 alert('傍晚好')
+             }
+             else if (19 <= time && time <= 23) { alert('深夜好') } */
+        //比较两个数的最大值
+ /*        var num1 = prompt('请输入第一个数');
+        var num2 = prompt('请输入第二个数');
+        if (num2 <= num1) {
+            alert(`两个数中最大值为${num1}`)
+        } else { alert(`两个数中最大值为${num2}`) } */
+
+        /*   //判断奇偶性
+          var number =parseInt( prompt('请输入一个数'));
+          if (number % 2 == 0) {
+              alert(`偶数`)
+          } else {
+              alert(`奇数`)
+          }
+   */
+        /*       //4 - 判断星期
+              var date = parseInt(prompt('请输入本月的日期'));
+              //var numb=date%7;
+              //alert(`星期${numb}`)
+              if (date % 7 == 1) { alert('星期一') }
+              else if (date % 7 == 2) { alert('星期二') }
+              else if (date % 7 == 3) { alert('星期三') }
+              else if (date % 7 == 4) { alert('星期四') }
+              else if (date % 7 == 5) { alert('星期五') }
+              else if (date % 7 == 6) { alert('星期六') }
+              else if (date % 7 == 0) { alert('星期七') } */
+
+    </script>
+</body>
+
+
+</html>

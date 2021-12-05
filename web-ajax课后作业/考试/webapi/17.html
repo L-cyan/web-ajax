@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <span style="color:red">
+            抱歉，你访问的网页不存在或者已经被删除。
+        </span>
+        <br>
+        <span>
+            该界面将在<span id="remain">5</span> s后自动跳转到首页,或者您点击
+            <a href="http://www.itheima.com">立即跳转</a>
+        </span>
+    </div>
+</body>
+<script>
+        var a = document.querySelector('a')
+        var remain = document.querySelector('#remain')
+        var time = 5;
+        // 这段应该不用写的点击就能跳转
+        a.addEventListener('click',function(){
+            location.href = 'http://www.itheima.com'    
+        })
+        // 倒计时效果
+        setInterval(function(){
+                if (time == 0 ) {
+                    location.href = 'http://www.itheima.com'
+                } else {
+                    remain.innerHTML = `${time}`;
+                    time--; 
+                }
+            },1000)
+
+</script>
+</html>

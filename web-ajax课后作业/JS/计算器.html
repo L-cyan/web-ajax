@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+         // 封装
+         function calculation( num1, num2, rule) {
+            switch (rule) {
+                case 1:
+                return num1 + num2;
+                break;
+                case 2:
+                return num1 - num2;
+                break;
+                case 3:
+                return num1 * num2;
+                break;
+                case 4:
+                return num1 / num2;
+                break;
+                default:
+                alert('输入正确选项')
+            }
+         } 
+        var option = Number(prompt('欢迎使用计算器：\n1.加法运算\n2.减法运算\n3.乘法运算\n4.除法运算\n5.退出'));       
+        while (option !=5) {
+            var num1 = parseFloat(prompt('请输入第一个数据'));
+                while (isNaN(num1) ) {
+                   num1 = Number(prompt('请输入第一个数据'));
+            }
+             var num2 = parseFloat(prompt('请输入第二个数据'));
+                while (isNaN(num2) ) {
+                   num2 = Number(prompt('请输入第二个数据'));
+             }
+             alert(`运算结果是${calculation( num1, num2, option)}`)
+        // while (option !=5) {
+        // var num1 = parseFloat(prompt('请输入第一个数据'));
+        //         while (isNaN(num1) ) {
+        //             num1 = Number(prompt('请输入第一个数据'));
+        //     }
+        //         var num2 = parseFloat(prompt('请输入第二个数据'));
+        //         while (isNaN(num2) ) {
+        //             num2 = Number(prompt('请输入第二个数据'));
+        //     }
+        // switch (option) {
+        //         case 1:
+        //         var result = num1 + num2 ;
+        //         alert(`运算结果是${result}`)
+        //         break;
+        //         case 2:
+        //         var result = num1 - num2 ;
+        //         alert(`运算结果是${result}`)
+        //         break;
+        //         case 3:
+        //         var result = num1 * num2 ;
+        //         alert(`运算结果是${result}`)
+        //         break;
+        //         case 4:
+        //         var result = num1 / num2 ;
+        //         alert(`运算结果是${result}`)
+        //         break;
+        //         default:
+        //         alert('请输入正确数字')
+        //     }
+
+            option = Number(prompt('欢迎使用计算器：\n1.加法运算\n2.减法运算\n3.乘法运算\n4.除法运算\n5.退出'))
+        }
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .nav {   
+            position: relative;    
+            width: 60px;
+            font-size: 14px;
+            color: #333;
+            text-indent:10px;
+            margin: 30px auto;
+        }
+        .nav-hd {
+           
+            height: 45px;
+            width: 60px;
+            line-height: 45px;
+        }
+        .nav-bd {
+            display: none;
+        }
+        i{
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            width: 20px;
+            height:20px;
+            background: url(./images/icon.png) no-repeat ;
+            background-position: 0 -177px;
+            background-size: 10px ,800px;
+        }
+        ul{
+            list-style: none;
+        } 
+        li {
+            width: 60px;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid orange;
+            border-left: 1px solid orange;
+            border-right: 1px solid orange;
+        }
+        .hover {
+            background-color: #666;
+            color: orange;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="nav-hd">微博 <i></i></div>
+        <div class="nav-bd">
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var hd= document.querySelector('.nav-hd');
+        var bd = document.querySelector('.nav-bd')
+        hd.onmouseover = function(){
+            bd.style.display = 'block'
+            hd.className = 'nav-hd hover'
+        }
+        hd.onmouseout = function(){
+            bd.style.display = 'none'
+            hd.className = 'nav-hd '
+        }
+    </script>
+</body>
+</html>

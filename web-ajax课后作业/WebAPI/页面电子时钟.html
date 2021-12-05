@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            background-color: lightpink;
+            margin: 200px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+    var div = document.querySelector('div')
+    getNow();
+    setInterval( getNow,1000)
+        //时间函数
+     function getNow() {
+         var  date = new Date();
+         var year = date.getFullYear();
+         var month = date.getMonth() + 1; //从0开始-11
+         var dates = date.getDate();
+         var  day = date.getDay();
+         var arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六']
+         var h = date.getHours();
+         h = h > 10 ? h :'0' + h;
+         var m = date.getMinutes();
+         m = m > 10 ? m :'0' + m;
+         var s = date.getSeconds();
+         s = s > 10 ? s :'0' + s;
+         div.innerHTML = `${year}年${month}月${dates}日 ${arr[day]} ${h}:${m}:${s} `;  
+        }
+        
+    </script>
+</body>
+</html>

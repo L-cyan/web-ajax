@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var deposit = 100;
+    var option = Number(prompt('请输入你的操作:\n存款请输入1\n取款请输入2\n显示余额输入3\n退出请输入4'));
+    while (option !== 4) {
+        switch (option) {
+            case 1:
+            var add = Number(prompt('请输入存款金额'));
+            isNaN(add) ? alert('请输入正确数字') : deposit += add ;
+            //alert(`余额${ deposit}元`)
+            alert(`${ add ? `余额为${deposit}元` : `输入有误显示原始金额${deposit}元`}`);
+            break;
+            case 2:
+            var withdraw = Number(prompt('请输入取款金额'));
+            while (isNaN(withdraw) ) {
+                withdraw = Number(prompt('请输入正确取款金额'));
+            }
+            withdraw > deposit ? alert('余额不足') : deposit -= withdraw;
+            alert(`余额为${ deposit}元`)
+            break;
+            case 3:  
+            alert(`余额为${deposit}元`);
+            break;
+            default :
+            alert('请输入正确内容');
+        }
+        option = Number(prompt('请输入你的操作:\n存款请输入1\n取款请输入2\n显示余额输入3\n退出请输入4'));
+    }
+    </script>
+</body>
+</html>

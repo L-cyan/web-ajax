@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //预解析
+         var bb = 1 ;
+         function aa(bb) {
+             bb = 10;
+             console.log(bb);
+         }
+         aa();
+         console.log(bb);
+         // 相当于
+        //  var bb;
+        //  function aa(bb) { // bb 局部变量
+        //      bb = 10; // bb 局部变量 
+        //      console.log(bb); // 就近
+        //  }
+        //  bb = 1;
+        //  aa();
+        //  console.log(bb);//只有全局
+         // 创建一个电脑对象
+         var computer = {
+             color : 'black' ,
+             weight : 980 ,
+             brand : 'dell',
+             type : 'L-12',
+             fun: function (able) {
+                  return console.log(`我在${able}`);
+                  }
+         }
+        console.log(computer.brand);
+        console.log(computer['color']);
+        computer.fun('看电影');
+        console.log(computer.fun('听音乐')); 
+// 我在听音乐
+// undefined 所以不应该这么写 没有return
+        computer.fun('打游戏');
+        computer.fun('敲代码');
+        // 遍历下面对象
+        var dog = {
+	    dName:"coco",
+	    type:"阿拉斯加犬",
+	    age:"5岁",
+	    color:"棕红色"
+        };
+
+        for (k in dog) {
+            console.log(k);
+            console.log(dog[k]);
+        }
+        // 请描述下面代码的输出结果以及运行原因 
+        var num = 1;
+        function demo() {
+         console.log('第一次打印：' + num);
+        function demoSon() {
+         console.log('第二次打印：' + num);
+         num = 3;
+         console.log('第三次打印：' + num);
+         }
+         var num = 2;
+         demoSon();
+          }
+         demo();
+         // 相当于
+        //  var num;
+        //  function demo() {
+        //     var num
+        //  console.log('第一次打印：' + num); //undefined
+        // function demoSon() {
+        //  console.log('第二次打印：' + num);//2
+        //  num = 3;
+        //  console.log('第三次打印：' + num);// 3
+        //  }
+        //  num = 2;
+        //  demoSon();
+        //   }
+        //  num = 1;
+        //  demo();
+
+         // 请使用arguments完成函数getResult，实现得到输入的所有的数值中的最小值、最大值、平均数、总和等功能
+          function getResult() { 
+            var obj = {
+            sum:arguments[0],
+            max:arguments[0],
+            min:arguments[0], 
+            averages: arguments[0],
+         }
+            for (i = 1;i < arguments.length;i++) {
+                obj.sum += arguments[i];
+                if (arguments[i] > obj.max) {
+                    obj.max = arguments[i];
+                }
+                if (arguments[i] < obj.min) {
+                    obj.min = arguments[i];
+                }
+              }
+            obj.averages = obj.sum / arguments.length;
+             return  obj;
+            }
+             var result = getResult(2,5,7,8);
+            console.log(result);
+         // 书写一个函数，判断指定数据是否存在于指定数组中
+
+         function exist(data , arr) {
+             var flag = false ;
+             for (var i = 0 ; i < arr.length;i++) {
+                 if ( data == arr[i]) {
+                    flag = true;
+                    break; 
+                 }
+             }
+             return flag;
+         }
+        console.log(exist(1 , [2,4,56,7])); 
+        // 以下有两个数组，一个数组arr是班级里所有的学员的名称，一个数组currentArr是提交了每日反馈的学员名单，请创建一种算法，把未提交每日反馈的学员筛选出来
+        var arr = ["张瑞淑", "徐海涛", "谢岗岗", "薛鹏", "魏明杨", "党婷", "熊飞", "郑翠翠", "李航卫", "屈涛", "汪孝双", "代攀飞", "武志钰", "王亚龙", "周芙榕", "李涛", "郝颖", "文冲洋", "王旭拯", "胡佳豪", "寇晓丽", "马晓晗","王思聪", "张绿", "李德", "郑萍", "张凯", "张嘉成", "葛云侠", "杨磊", "任变", "景德", "高卷林", "刘益凡", "赵娜", "陈章鸣", "张荣召", "赵凯旋", "程倩倩", "脱朝平", "刘吉利", "郭苗苗", "马建峰", "潘瑞", "闫翔", "马晨", "李轩轩", "黄红梅", "刘书彬", "罗强", "刘东","王可可", "陈泽文", "李嘉琪", "段佳琦", "黄燕", "邱淑鸿", "宋翔宇", "王波", "樊琳", "王兆国", "许成", "李兴"];
+
+        var currentArr = ["张瑞淑", "徐海涛", "谢岗岗", "薛鹏", "魏明杨", "党婷", "熊飞", "郑翠翠", "李航卫", "屈涛", "汪孝双", "代攀飞", "武志钰", "王亚龙", "周芙榕", "李涛", "郝颖", "文冲洋", "王旭拯", "胡佳豪", "寇晓丽", "马晓晗", "张绿", "李德","郑萍", "张凯", "张嘉成", "葛云侠", "杨磊", "任变", "景德", "高卷林", "刘益凡", "赵娜", "陈章鸣", "张荣召", "赵凯旋", "程倩倩", "脱朝平", "刘吉利", "郭苗苗", "马建峰", "潘瑞", "闫翔", "马晨", "李轩轩", "黄红梅", "刘书彬", "罗强", "刘东", "陈泽文", "李嘉琪", "段佳琦", "黄燕", "邱淑鸿", "宋翔宇", "王波", "樊琳", "王兆国", "许成", "李兴"];
+
+        function isExist(arr , currentArr) {
+         
+             var sum = [];
+             for (var i = 0 ; i < arr.length;i++) {
+                    if (exist(arr[i] , currentArr ) ){
+                    } else {
+                        sum.push(arr[i]);
+                    }
+                 }
+             return sum;
+         }
+         console.log(isExist(arr , currentArr));
+
+         // 把下面数组的首尾两个元素互换
+         var arr = ["鹿晗","王俊凯","蔡徐坤","彭于晏","周杰伦","刘德华","赵本山"];
+        //  var temp = arr[0] ;
+        //  arr[0] = arr[arr.length - 1];
+        //  arr[arr.length - 1] = temp;
+        //  console.log(arr);
+        var last = arr.pop();
+        var first = arr.shift();
+        arr.push(first);
+        arr.unshift(last);
+        console.log(arr);
+
+        //  指定日期是今年的第几天
+        function getDayNum(time) {
+            // var  year = new Date(time);
+            // var by = year.getFullYear(time);
+            // var arrBy = [by,01,01 ]
+            // var byTime =  + new Date(arrBy.join());
+            // var target = + new Date(time);
+            // var d = Math.floor((target - byTime) / 1000 / 60 / 60  /24) + 1 ;
+            // return `该日期是当前年的第${d}天`
+            // 简便方法字符串转换为数组
+            var timeArr = time.split('-');
+            var target = + new Date(time);
+            var byTime = + new Date(timeArr[0],0,0) // 前一年的 12-31,0：0
+            var d = Math.floor((target - byTime) / 1000 / 60 / 60  /24)
+            return `该日期是当前年的第${d}天`
+        }
+
+            console.log(getDayNum('2000-1-3'));  
+        // 16进制随机颜色
+        function getRandom(min, max) {
+             return Math.floor(Math.random() * (max - min + 1)) + min; 
+        }    
+         var arr1 = [0 ,1 ,2,3,4,5 ,6 ,7 ,8 ,9,'A','B', 'C','D','E','F' ];
+         var color = '#';
+         for (var i = 1; i <= 6;i++) {
+             color += arr1[getRandom(0, arr1.length - 1)]
+         }
+         console.log(color);
+        // 字符串操作
+         var str = 'abaasdffggghhjjkkgfddsssss3444343';
+        // 1、 字符串的长度 
+        console.log(str.length);
+        // 2、 取出指定位置的字符，如：0,3,5,9等 
+        function takeStr(index) {
+            return str.charAt(index)
+        }
+        console.log(takeStr(5));
+        // 3、 查找指定字符是否在以上字符串中存在，如：i，c ，b等 
+        function strIsExit(str1) {
+           return str.indexOf(str1) == -1 ? `${str1}不存在` :`${str1}存在`;
+        }
+        console.log(strIsExit('c'));
+        console.log(strIsExit('b'));
+        // 4、 替换指定的字符，如：g替换为22,ss替换为b等操作方法 
+        // str = str.replace(/g/g,'22');
+        // str = str.replace(/ss/g,'b');
+        // console.log(str);
+        // 5、 截取指定开始位置到结束位置的字符串，如：取得1-5的字符串
+        // str = str.slice(1,5);
+        // console.log(str);
+        // 6、 找出以上字符串中出现次数最多的字符和出现的次数 
+        var o = {
+        }
+        for (var i = 0; i < str.length; i++) {
+            var chars = str.charAt(i);
+            if (o[chars]) {
+                o[chars]++;
+            } else {
+                o[chars] = 1;
+            }
+        }
+        var max = 0;
+        var ch = '' ;
+        for ( var k in o) {
+            if ( o[k] > max ) {
+                max = o[k];
+                ch = k;
+            }
+        }
+        console.log(max , ch);
+        // 7、 遍历字符串，并将遍历出的字符两头添加符号“@”
+        for (var i = 0; i < str.length;i++) {
+            console.log(`@${str.charAt(i)}@`);
+        }
+        // 随机选学员
+        var arr2 = ["鹿晗","王俊凯","蔡徐坤","彭于晏","周杰伦","刘德华","赵本山"];
+        // var newArr = [];
+        // for (var i = 0; i < 100;i++) {
+        //     var temp = arr2[getRandom(0, arr2.length)];
+        //     if (newArr.indexOf(temp) == -1) {
+        //         newArr.push(temp);  
+        //     }
+        //  }
+        // newArr.length = 4;
+        // console.log(newArr);
+        //删除长度一直减少 i从0-3就结束循环 正好四个数
+        // var newArr1 = [];
+        // for (var i = 0; i < arr2.length; i++) {
+        //     var temp1 = parseInt(Math.random()*arr2.length);
+        //     newArr1[i] = arr2[temp1];
+        //        arr2.splice(temp1,1);
+        // }
+        // console.log(newArr1);
+        // 老师答案
+        var newArr3 = [];
+        // while 更简单
+         do  {
+             var randomIndex = getRandom(0 , arr2.length - 1);
+             if ( newArr3.indexOf(arr2[randomIndex]) == -1) {
+                newArr3.push(arr2[randomIndex]);
+             }
+         } while (newArr3.length !=4 ) 
+         console.log(newArr3);
+        // 随机排序
+        var newArr2= [];
+        var num =  arr2.length;
+        for (var i = 0; i < num; i++) {
+            // var temp2 = parseInt(Math.random()*(num-i));
+            // newArr2[i] = arr2[temp2];
+            // arr2.splice(temp2,1);
+            // 另一种写法 简单
+            var temp2 = parseInt(Math.random()*arr.length);
+            newArr2.push(arr2.splice(temp2,1)[0]) // 返回的是数组 取值就可以了
+           
+        }
+        console.log(newArr2);
+            // 老师答案
+        
+            var newArr4 = [];
+         do  {
+             var randomIndex = getRandom(0 , arr2.length - 1);
+             if ( newArr4.indexOf(arr2[randomIndex]) == -1) {
+                newArr4.push(arr2[randomIndex]);
+             }
+         } while (newArr4.length !=arr2.length ) 
+         console.log(newArr4);
+       
+    </script>
+</body>
+</html>

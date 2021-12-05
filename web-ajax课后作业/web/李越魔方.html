@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .main {
+      width: 300px;
+      height: 300px;
+      margin: 300px auto;
+      position: relative;
+      transform-style: preserve-3d;
+      /* transform: rotateY(-40deg) rotateX(-20deg); */
+      animation: run 10s infinite;
+      text-align: center;
+      line-height: 300px;
+      backface-visibility: hidden;
+    }
+
+    li {
+      position: absolute;
+      height: 300px;
+      width: 300px;
+      font-size: 5em;
+      text-align: center;
+      line-height: 300px;
+      backface-visibility: hidden;
+    }
+
+    @keyframes run {
+      100% {
+        transform: rotateX(720deg) rotateY(720deg);
+      }
+    }
+
+    .main .top {
+      transform: rotateX(90deg) translateZ(150px);
+    }
+
+    .main .bottom {
+      transform: rotateX(-90deg) translateZ(150px);
+    }
+
+    .main .left {
+      transform: rotateY(-90deg) translateZ(150px);
+    }
+
+    .main .right {
+      transform: rotateY(90deg) translateZ(150px);
+    }
+
+    .main .back {
+      transform: rotateY(-180deg) translateZ(150px);
+    }
+
+    .main .front {
+      transform: translateZ(150px);
+    }
+
+    li {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 10px;
+      box-sizing: border-box;
+      align-items: center;
+      /* border: 1px dashed rgb(248, 113, 2); */
+      background-color: rgb(35, 17, 121);
+    }
+
+    li div {
+      /* border: 1px solid #fff; */
+      flex: 0 0 30%;
+      height: 30%;
+      background-color: rgb(252, 65, 127);
+      border-radius: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="all">
+    <ul class="main">
+      <li class="top">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </li>
+      <li class="bottom">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </li>
+      <li class="left">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </li>
+      <li class="right">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </li>
+      <li class="front">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </li>
+      <li class="back">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </li>
+    </ul>
+  </div>
+
+</body>
+
+</html>

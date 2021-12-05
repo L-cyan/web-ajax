@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            border: 1px solid lightblue;
+        }
+        table {  
+            border-collapse: collapse;
+            width: 500px;
+            box-sizing: border-box;       
+        }
+        th ,td {
+            border:1px solid #000 ;
+        }
+        thead {
+            border-collapse: collapse;
+            background-color: purple;   
+        }
+       
+        thead tr th:nth-child(2) {
+            width: 400px;
+        }
+        tbody {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        请输入姓名: <input type="text" id="username">
+    </div>
+    <div>
+        请输入邮箱: <input type="email" name="" id="email">
+    </div>
+    <button>添加</button>
+    <table>
+        <thead><tr>
+            <th>姓名</th>
+            <th>邮箱</th>
+        </tr></thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        // 获取元素
+        var btn = document.querySelector('button');
+        var username =  document.getElementById('username');
+        console.log(username);
+        var email =  document.getElementById('email');
+        console.log(email);
+        var tbody =document.querySelector('tbody');
+        // 注册事件
+        btn.onclick = function() {
+            if (username.value.trim() == '' || email.value.trim() == '') {
+                alert('请将数据填入完全')  
+                return false;
+            } else {
+                // 创建行节点
+                var tr = document.createElement('tr')
+                // 添加节点
+                tbody.appendChild(tr);
+                // 创建列节点 赋值
+                var td1 = document.createElement('td')
+                td1.innerHTML = username.value;
+                var td2 = document.createElement('td')
+                td2.innerHTML = email.value;
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                // 置空
+                username.value = ''
+                email.value = ''
+            }
+        }
+    </script>
+</body>
+</html>

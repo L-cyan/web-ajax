@@ -1,0 +1,70 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./jquery-1.11.1.js"></script>
+    <style>
+        select {
+            width: 200px;
+            height: 300px;
+            font-size: 22px;
+            background-color: #80ff45;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <select name="" id="sel1" size="4" multiple>
+        <option value="">香蕉</option>
+        <option value="">大鸭梨</option>
+        <option value="">苹果</option>
+        <option value="">大西瓜</option>
+    </select>
+
+    <button class="right all">&gt;&gt;&gt;</button>
+    <button class="left all">&lt;&lt;&lt;</button>
+    <button class="right">&gt;</button>
+    <button class="left">&lt;</button>
+
+    <select name="" id="sel2" size="4" multiple></select>
+
+    <script>
+        $(function(){
+            // 移动时 在另一边增加新的选项 且值为一边选中的
+        //   $('.right').click(function(){
+        //     var newOption = $('<option value=""></option>');
+        //     var vf = $('#sel1 option:selected').text();
+        //     $('#sel2').append(newOption);
+        //     $('#sel2 option:last').text(vf) 
+        //     $('#sel1 option:selected').remove() 
+        //   })   
+        // $('.left').click(function(){
+        //     var newOption = $('<option value=""></option>');
+        //     var vf = $('#sel2 option:selected').text();
+        //     $('#sel1').append(newOption);
+        //     $('#sel1 option:last').text(vf) 
+        //     $('#sel2 option:selected').remove() 
+        //   }) 
+        // })   
+        $('button').eq(0).click(function () {
+                //左侧所有option全部移动到右侧select中(不用for循环)
+                $('#sel2').append($('#sel1 option'));
+            });
+        $('button').eq(1).click(function () {
+                $('#sel1').append($('#sel2 option'));
+            });
+        $('button').eq(2).click(function () {
+                $('#sel2').append($('#sel1 option:selected'));
+            });
+        $('button').eq(3).click(function () {
+                $('#sel1').append($('#sel2 option:selected'));
+            });
+        })
+    </script>
+
+
+</body>
+</html>

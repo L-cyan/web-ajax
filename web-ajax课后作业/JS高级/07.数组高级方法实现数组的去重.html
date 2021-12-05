@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,4,5,7,2,23,5,2,3,45,7,1,4,5,4]
+        var newArr = arr.filter(function(item,i,arr){
+            return arr.indexOf(item) === i
+        })
+        console.log(newArr);
+    </script>
+</body>
+</html>

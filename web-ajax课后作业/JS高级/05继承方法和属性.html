@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Father(money,cars,house,company){
+            this.money= money;
+            this.cars = cars;
+            this.house=house;
+            this.company = company;   
+        } 
+        Father.prototype.manage = function(){
+            console.log('管理');
+        }
+        function Son(money,cars,house,company){
+            // 后面加入参数不然NAN
+            Father.call(this,money,cars,house,company)
+        }
+        // 注意是new
+        Son.prototype = new Father()
+        Son.prototype.constructor = Son
+        var son = new Son(1000,'奥迪','保利','大厂')
+        console.log(son.money + son.company);
+        son.manage()
+    </script>
+</body>
+</html>

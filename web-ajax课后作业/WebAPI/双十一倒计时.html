@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .box{
+            width: 600px;
+            height: 250px;
+            background-color: #ccc;
+            margin: 100px auto;
+            text-align: center;
+            overflow: hidden;
+
+        }
+        .box h1 {
+            margin-top:40px ;
+            margin-bottom: 60px;
+            font-size: 42px;
+    
+        }
+        .countDown {
+            color: #FF9F00;
+            font-size: 46px;
+        }
+        span {
+            margin: 0 5px;
+            padding :0 5px;
+            
+        }
+        .hour , .minute ,.second {
+             background-color: #FF9F00;
+             color: #fff;
+             font-weight: 900;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>距离光棍节，还有</h1>
+        <div class="countDown"> <span class="day"></span> <span class="hour"></span><span class="minute"></span><span class="second"></span></div>
+    </div>
+    <script>
+        var day =document.querySelector('.day');
+        var hour =document.querySelector('.hour');
+        var minute =document.querySelector('.minute');
+        var second =document.querySelector('.second');
+        var target = + new Date('2021-11-11 00:00:00');
+        countDown();
+        setInterval(countDown,1000)
+              
+     function countDown() {
+         var  date = + new Date();
+         var last = (target - date) /1000;
+         var  d = parseInt( last / 60 /60 / 24 );
+         day.innerHTML = `${d}天`
+         var h =  parseInt(last / 60 / 60 % 24);
+         h = h >= 10 ? h :'0' + h;
+         hour.innerHTML = `${h}时`
+         var m =  parseInt(last / 60 % 60) ;
+         m = m >= 10 ? m :'0' + m;
+         minute.innerHTML = `${m}分`
+         var s = parseInt( last % 60);
+         s = s >= 10 ? s :'0' + s;
+         second.innerHTML = `${s}秒`
+     }
+    </script>
+</body>
+</html>

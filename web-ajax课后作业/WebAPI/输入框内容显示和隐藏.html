@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 400px;
+            margin: 100px auto;
+            font-size:19px;
+        }
+        input {
+            height: 25px;
+            width: 100px;
+            color: #ccc;
+            padding-left:5px;
+            outline: none;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            color: #fff;
+            padding-left:0;
+            width: 38px;
+            background-color: lightblue;
+        }
+
+    </style>
+</head>
+<body>
+    <div> 
+        <input type="text" value="邮箱/ID/手机号" class="info">
+        <input type="text" value="密码"class="psd"> 
+        <input type="button" value="登录" class="btn">
+     </div>
+    <script>
+        var info = document.querySelector('.info');
+        var psd = document.querySelector('.psd');
+        info.onclick = function(){
+            if (this.value === '邮箱/ID/手机号') {
+                this.value = '';
+                this.style.border = '1px solid pink'
+            }
+        }
+        info.onblur = function(){
+            if (this.value.trim() === '') {
+                this.value = '邮箱/ID/手机号';
+                this.style.border = '1px solid #ccc'
+            } else {
+                this.style.border = '1px solid #ccc'
+            }
+        }
+        psd.onclick = function(){
+            if (this.value === '密码') {
+                this.value = '';
+                this.style.border = '1px solid pink'
+            }
+        }
+        psd.onblur = function(){
+            if (this.value.trim() === '') {
+                this.value = '密码';
+                this.style.border = '1px solid #ccc'
+            } else {
+                this.style.border = '1px solid #ccc'
+            }
+        }
+    </script>
+</body>
+</html>

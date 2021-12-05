@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>易康问答</title>
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+    <style>
+        body {
+            width: 100%;
+            min-width: 640px;
+            min-width: 320px;
+            font-family: serif;
+            margin: 0 auto;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul li {
+            list-style: none;
+            float: left;
+        }
+
+        a {
+            text-decoration: none;
+            color: #35424b;
+            font-size: 14px;
+        }
+
+        .nav-list ul li:hover {
+            color: #44b181;
+            border-bottom: 1px solid #44b181;
+
+        }
+
+        .nav-list {
+            /* 固定在顶部 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 44px;
+
+            width: 100%;
+            min-width: 640px;
+            min-width: 320px;
+            padding: 0 10px;
+            /* background-color: blue; */
+        }
+
+        .nav-list ul li:nth-child(2n+1) {
+            /* background-color: pink; */
+            height: 44px;
+            width: 33.1%;
+            line-height: 44px;
+            text-align: center;
+
+
+        }
+
+        .nav-list ul li:nth-child(2n) {
+            width: 1px;
+            background-color: #e1e1e1;
+            height: 17px;
+            margin-top: 14px;
+        }
+
+
+
+        .nav-list ul li:last-child {
+            position: relative;
+
+
+        }
+
+        .nav-list ul li:last-child img {
+            position: absolute;
+            right: 10px;
+            top: 14px;
+            width: 17px;
+        }
+
+        .pic {
+            /* 上面固定会上去 所以设置 */
+            margin-top: 44px;
+        }
+
+        .pic img {
+            width: 100%;
+            /* 底部留白 */
+            vertical-align: middle
+        }
+
+        .nav-content {
+            overflow: hidden;
+            width: 100%;
+            background-color: #ccc;
+        }
+
+        .q-content {
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #fff;
+        }
+
+        .q-content h4 {
+            font-size: 14px;
+            font-weight: normal;
+            margin: 7px 0;
+
+
+        }
+
+        .q-content span {
+            margin: 0 10px;
+        }
+
+        .q-content p {
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 12px;
+
+        }
+
+        .audio img {
+            width: 40px;
+            vertical-align: middle;
+            margin-right: 15px;
+
+        }
+
+        .listen {
+            height: 30px;
+            line-height: 30px;
+            border-radius: 15px;
+            width: 145px;
+            background-color: #44b181;
+            color: #fff;
+            font-size: 14px;
+            margin-top: 10px;
+
+        }
+
+        .audio {
+
+            overflow: hidden;
+
+        }
+
+        .audio div {
+            float: left;
+
+        }
+
+        .audio div:last-child {
+            float: right;
+            font-size: 11px;
+            color: #999;
+            margin-top: 27px;
+
+        }
+
+        .listen {
+            position: relative;
+        }
+
+        .listen::before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: -2px;
+            width: 6px;
+            height: 10px;
+            background: url(./images/jiao.png) no-repeat;
+            background-size: 6px 10px;
+
+        }
+
+        .listen img {
+            width: 10px;
+            margin-left: 13px;
+            margin-right: 5px;
+        }
+
+        .icon-24gf-headphones {
+            margin-right: 5px;
+        }
+
+        .footer {
+
+
+            width: 100%;
+            height: 50px;
+        }
+
+        .f-nnav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 50px;
+            width: 100%;
+            font-size: 11px;
+            color: #b4b5b6;
+            background-color: #ccc;
+
+        }
+
+        .f-nnav ul li {
+            float: left;
+            width: 25%;
+            text-align: center;
+            /* padding-left: 50%; */
+        }
+
+        .f-nnav ul li:hover {
+            color: #44b181;
+        }
+
+        .f-nnav ul li h5 {
+            width: 16px;
+            height: 14px;
+            margin: 0 auto;
+            margin-top: 9px;
+            margin-bottom: 7px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <header>
+        <div class="nav-list">
+            <ul>
+                <!-- tab栏切换 -->
+                <li><a href="#">问题榜</a>
+                </li>
+                <li></li>
+                <li><a href="#">新晋榜</a></li>
+                <li></li>
+                <li><a href="#">才华榜 <img src="./images/search.png" alt=""></a></li>
+            </ul>
+        </div>
+        <!-- 图片轮播 -->
+        <div class="pic"> <img src="./images/banner.png" alt=""></div>
+    </header>
+
+    <div class="nav-content">
+        <div class="q-content">
+            <h4>如何学习语文的文言文内容,快速提高语文成绩？
+            </h4>
+            <p>王知易<span>|</span> 英语文学语言老师</p>
+            <div class="audio">
+                <div> <img src="./images/ball.png" alt=""></div>
+                <div class="listen"> <img src="./images/wifi.png">限时免费听</div>
+                <div> <i class="iconfont icon-24gf-headphones "></i>22人听过</div>
+            </div>
+
+        </div>
+        <div class="q-content">
+            <h4>如何学习语文的文言文内容,快速提高语文成绩？
+            </h4>
+            <p>王知易<span>|</span> 英语文学语言老师</p>
+            <div class="audio">
+                <div> <img src="./images/ball.png" alt=""></div>
+                <div class="listen"> <img src="./images/wifi.png">限时免费听</div>
+                <div> <i class="iconfont icon-24gf-headphones "></i>22人听过</div>
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <div class="f-nnav">
+            <ul>
+                <li>
+                    <h5 class="iconfont icon-zhaoshangxiaochengxu-kanbangdan "> </h5>
+                    <p> 榜单</p>
+                </li>
+                <li>
+                    <h5 class="iconfont icon-zhinanzhen ">
+                    </h5>
+                    <p> 收听</p>
+                </li>
+                <li>
+                    <h5 class="iconfont icon-24gf-headphones ">
+                    </h5>
+                    <p> 发现</p>
+                </li>
+                <li>
+                    <h5 class="iconfont icon-renwu-ren">
+                    </h5>
+                    <p> 我的</p>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../Day02/jquery-1.11.1.js"></script>
+    
+    <style>
+        .wrap {
+            width: 400px;
+            height: 400px;
+            margin: 100px auto 0;
+        }
+
+        .wrap h1 {
+            text-align: center;
+        }
+
+        .wrap div {
+            width: 400px;
+            height: 300px;
+            background: pink;
+            font-size: 30px;
+            text-align: center;
+            line-height: 300px;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div class="wrap">
+        <h1>按键改变颜色</h1>
+        <div id="bgChange">
+            keyCode为：
+            <span id="keyCodeSpan"></span>
+        </div>
+    </div>
+    <script>
+        $(function(){
+          $(document).on('keydown',function(e){
+                    $('#keyCodeSpan').text(e.keyCode)
+                    switch(e.keyCode){
+                        case 82:
+                        $('#bgChange').css('backgroundColor','red')   
+                        break;
+                        case 89:
+                        $('#bgChange').css('backgroundColor','yellow')   
+                        break;
+                        case 80:
+                        $('#bgChange').css('backgroundColor','purple')   
+                        break;
+                        case 66:
+                        $('#bgChange').css('backgroundColor','blue')   
+                        break;
+                        case 71:
+                        $('#bgChange').css('backgroundColor','green')   
+                        break;
+                        default:
+                        $('#keyCodeSpan').text('无此键位')  
+                        $('.bgChange').css('backgroundColor','pink')   
+
+                    }
+                
+          })
+        })
+    </script>
+</body>
+</html>

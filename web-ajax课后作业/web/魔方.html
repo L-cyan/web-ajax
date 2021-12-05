@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* body {
+            perspective: 1000px;
+        } */
+
+        section {
+            transform-style: preserve-3d;
+            width: 300px;
+            position: relative;
+            margin: 500px auto;
+            backface-visibility: hidden;
+            animation: turn 10s linear infinite;
+        }
+
+        @keyframes turn {
+            100% {
+                transform: rotateX(720deg) rotateY(720deg);
+            }
+
+        }
+
+        section ul {
+            border: 1px solid #fff;
+            position: absolute;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-content: space-evenly;
+            width: 300px;
+            height: 300px;
+            background-color: purple;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li div {
+            width: 90px;
+            height: 90px;
+            border-radius: 45px;
+            background-color: red;
+
+        }
+
+        ul li {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+        }
+
+        .up li,
+        .right li,
+        .back li {
+            height: 33.33%;
+        }
+
+        .down li,
+        .left li {
+            height: 50%;
+        }
+
+        .front {
+            transform: translateZ(150px);
+        }
+
+        .back {
+            transform: rotateY(180deg)translateZ(150px);
+        }
+
+        .left {
+            transform: rotateY(-90deg) translateZ(150px);
+        }
+
+        .right {
+            transform: rotateY(90deg) translateZ(150px);
+        }
+
+        .up {
+            transform: rotateX(90deg) translateZ(150px);
+        }
+
+        .down {
+            transform: rotateX(-90deg) translateZ(150px);
+        }
+    </style>
+    }
+    </style>
+</head>
+
+<body>
+    <section>
+        <!-- 前 -->
+        <ul class="front">
+            <li>
+                <div></div>
+            </li>
+        </ul>
+        <ul class="back">
+            <li>
+                <div></div>
+                <div></div>
+            </li>
+            <li>
+                <div></div>
+                <div></div>
+            </li>
+            <li>
+                <div></div>
+                <div></div>
+            </li>
+        </ul>
+        <ul class="left">
+            <li>
+                <div></div>
+            </li>
+            <li>
+                <div></div>
+            </li>
+
+        </ul>
+        <ul class="right">
+            <li>
+                <div></div>
+                <div></div>
+            </li>
+            <li>
+                <div></div>
+            </li>
+            <li>
+                <div></div>
+                <div></div>
+            </li>
+
+        </ul>
+        <ul class="up">
+            <li>
+                <div></div>
+            </li>
+            <li>
+                <div></div>
+            </li>
+            <li>
+                <div></div>
+            </li>
+        </ul>
+        <ul class="down">
+            <li>
+                <div></div>
+                <div></div>
+            </li>
+            <li>
+                <div></div>
+                <div></div>
+            </li>
+
+        </ul>
+        </div>
+
+</body>
+
+</html>

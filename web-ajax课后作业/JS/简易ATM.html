@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var deposit = 100;
+        var option = Number(prompt('请输入你的操作:\n存款请输入1\n取款请输入2\n显示余额输入3\n退出请输入4')) ;
+        if (isNaN(option)) {
+            alert('请输入正确数字')
+        } else if ( option === 1) {
+            var add = Number(prompt('请输入存款金额'));
+            // 三元表达式比if else更合适
+          
+            isNaN(add) ?  alert('请输入正确数字') : deposit += add ;
+            alert(`余额为${ deposit}元`)
+         
+        } else if ( option === 2) {
+            var withdraw = Number(prompt('请输入取款金额'))
+while (isNaN(withdraw) ) {
+ withdraw = Number(prompt('请输入正确取款金额'))
+}
+withdraw > deposit ?   alert('余额不足') : deposit -= withdraw ; 
+alert(`余额为${deposit}元`);
+            
+        } else if ( option === 3) {
+            alert(`余额为${deposit}元`);
+        } else if ( option === 4) {
+            alert(`已退出`);
+        } else {
+            alert('请输入正确数字');
+        }
+
+        
+    </script>
+</body>
+</html>

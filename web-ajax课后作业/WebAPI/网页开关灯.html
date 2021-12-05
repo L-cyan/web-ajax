@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .off {
+           background-color: #000; 
+        }
+    </style>
+</head>
+<body>
+    <button>开关灯</button>
+    <script>
+        var btn = document.querySelector('button');
+        var all = document.body;
+
+        var flag = 0 ;
+        btn.onclick = function() {
+            if (flag == 0) {
+            all.className = 'off'
+            flag = 1;
+            } else {
+                all.className = '' ;
+                flag = 0;
+            }
+           
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .pop_main {
+            display: none;
+        }
+        .pop_con {
+            width: 500px;
+            height: 300px;
+            background: #fff;
+            border-radius: 4px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-left: -250px;
+            margin-top: -150px;
+            border: 1px solid #f0f0f0;
+            z-index: 9999;
+        }
+        .pop_title {
+            width: 490px;
+            height: 40px;
+            background: #157bef;
+            margin: 5px auto 0;
+            border-radius: 6px;
+        }
+        .pop_title h3 {
+            float: left;
+            margin: 0px;
+            margin-left: 10px;
+            line-height: 40px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: normal;
+        }
+        .pop_title a {
+            float: right;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            margin: 10px 10px 0 0;
+            text-decoration: none;
+            line-height: 20px;
+            text-align: center;
+            font-size: 20px;
+            border-radius: 4px;
+        }
+        .pop_detail {
+            height: 200px;
+            border-bottom: 1px solid #f0f0f0;
+            /* 解决margin-top塌陷 */
+            overflow: hidden;
+        }
+        .pop_footer {
+            height: 54px;
+            line-height: 54px;
+            text-align: center;
+            color: #666;
+        }
+        .pop_footer span {
+            color: red;
+            padding: 0 5px;
+        }
+        .mask {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            position: fixed;
+            left: 0;
+            top: 0;
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+            z-index: 9990;
+        }
+        .pop_text {
+            margin: 74px 0 0 100px;
+            font-size: 20px;
+            color: #666;
+        }
+        .pop_footer {
+            height: 54px;
+        }
+        .pop_footer .confirm,
+        .pop_footer .cancel {
+            float: right;
+            width: 100px;
+            height: 36px;
+            background: #157bef;
+            border: 0px;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 4px;
+            margin: 9px 10px 0 0;
+        }
+        .pop_footer .cancel {
+            background: #ddd;
+            color: #666;
+            margin-right: 20px;
+        }
+    </style>
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="弹出弹框" id="btn">
+        <div class="pop_main" id="pop">
+            <div class="pop_con">
+                <div class="pop_title">
+                    <h3>系统提示</h3>
+                </div>
+                <div class="pop_detail">
+                    <p class="pop_text">亲！请关注近期的优惠活动！</p>
+                </div>
+                <div class="pop_footer">
+                </div>
+            </div>
+            <div class="mask"></div>
+        </div>
+    </div>
+    <script>
+        var btn = document.getElementById('btn');
+        var pop = document.getElementById('pop');
+        var pop_con = document.querySelector('.pop_con')
+        btn.onclick = function (e) {
+            pop.style.display = 'block';
+        }
+        // 错误代码
+        // onclick只有冒泡阶段，给HTML注册点击事件无法到达子元素 子元素的点击按钮失效。 如果要使用监听方式注册，需要 useCapture参数改为true 变为捕获 ，或者也可以直接再给pop注册事件。
+        // document.documentElement.onclick = function (e) {
+        //     pop.style.display = 'none';
+        //  }
+
+         // 实现代码如下： 前面需要获取pop_con这个DOM节点
+         document.documentElement.addEventListener('click',function (e) {
+            var x =  e.pageX - pop_con.offsetLeft;
+            var y = e.pageY - pop_con.offsetTop;
+            if (x < 0 || x > 500 || y < 0 || y > 300){
+                pop.style.display = 'none';
+            } else {
+                pop.style.display = 'block';
+            }  
+         },true)
+        // 给pop添加事件也能实现功能
+        // pop.addEventListener('click' , function (e) {
+        //     var x =  e.pageX - pop_con.offsetLeft;
+        //     var y = e.pageY - pop_con.offsetTop;
+        //     if (x < 0 || x > 500 || y < 0 || y > 300){
+        //         this.style.display = 'none';
+        //     } else {
+        //         this.style.display = 'block';
+        //     }  
+        // } ) 
+     
+     </script>
+</body>
+</html>
